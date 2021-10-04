@@ -1,0 +1,104 @@
+#nprogress .bar {
+  height: 4px !important;
+}
+
+.ql-editor {
+  min-height: 300px;
+}
+
+body{
+  background-color: #E5E5E5 !important;
+}
+.nav-top{
+  z-index: 1;
+    position: sticky;
+    top:0;
+}
+
+
+a { color: inherit; } 
+
+
+a:hover{
+text-decoration: none;
+}
+img {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+h1{
+  font-family: "Merriweather", serif;
+  font-size: 24px;
+  color: #292929;
+}
+h2 {
+  font-family: "Merriweather", serif;
+  font-size: 18px;
+  color: #292929;
+}
+
+h3 {
+  font-family: "Merriweather", serif;
+  font-size: 18px;
+  color: #292929;
+}
+h5{
+  text-decoration: none !important;
+  color: #080808;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.category-button {
+  margin: 0 8px 8px 0;
+  opacity: 0.8;
+  background-color: #c2c0c0;
+  padding: 6px 16px;
+}
+
+
+
+.btn:hover{
+  background-color: #6c757d;
+  color: #36db36
+}
+
+.tag-button {
+  margin: 0 8px 8px 0;
+  opacity: 0.8;
+  border: 1px solid rgba(41, 41, 41, 0.1);
+  padding: 6px 16px;
+}
+
+
+.tribe-button {
+  margin: 0 8px 8px 0;
+  opacity: 0.8;
+  border: 1px solid rgba(155, 204, 122, 0.5);
+  padding: 6px 16px;
+}
+
+.nav-link{
+  
+  color: #000000 !important
+}
+
+.nav-link:hover{
+  
+  color: #ffffff !important
+}
+.my-navbar{
+  
+  border-bottom: rgb(41, 40, 40, 0.1) 0.2px solid;
+  -webkit-box-shadow: 0 1px 1px -1px rgb(41, 40, 40, 0.1);
+     -moz-box-shadow: 0 1px 1px -1px rgb(41, 40, 40, 0.1);
+          box-shadow: 0 1px 1px -1px rgb(41, 40, 40, 0.1);
+  
+}
+
+.query-search{
+  margin-top: 2rem !important;
+  background-color: black;
+}
+

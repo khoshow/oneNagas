@@ -1,0 +1,32 @@
+ .popup {
+    position: fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0; 
+    width: 100%;
+    height: 100%;
+    background-color: #E5E5E5;
+    opacity: 0;
+    animation: popup .5s  ease forwards;
+  }
+  @keyframes popup {
+   from {opacity: 0; }
+   to{opacity: 1; }
+  }
+
+
+.popup-inner{ 
+  position:absolute;  
+    padding: 32px;
+    width: 100%;      
+  
+    }
+
+.popup-inner .close-btn{   
+  position:absolute;
+    top: 0;
+    right: 100px;
+    z-index: 100;
+    
+}

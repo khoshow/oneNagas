@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+
+@media only screen and (min-width: 320px) and (max-width: 720px) {
+  .editorPickItem {
+    min-width: 100%;
+  }
+}
+
+.editorsPick {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.editorPickItem {
+  flex-basis: 30%;
+}
+
+.editorPickPhoto {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border: 1px solid #c99;
+  background-position: center center;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+p{
+  font-family: 'Merriweather', serif;
+  font-size: 13px;
+}
+
+h2{
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  color: #292929;
+}
+
+h3{
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  color: #292929;
+}
+
+h4{
+  font-family: 'Merriweather', serif;
+  font-size: 13px;
+  color: #292929;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+h5{
+  font-family: 'Merriweather', serif;
+  font-size: 13px;
+  color: #757575
+}
+
+.photoAndName{
+  align-items: center;
+  display: flex;
+}
+
+.username{
+  margin-left: 0.5rem;
+}
+
+
+.img {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.discover-image{
+  height:120px;  
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+border-radius: 10px;
+}
+
+.discover-image:hover{
+ cursor: pointer;
+}
+
+.discover-items{
+  align-items: center;
+  border:1px solid rgb(68, 63, 69, 0.2);  
+  padding: 1rem;
+
+
+}
+
+.discover-second{
+  margin: 1rem;
+}
+.discover-cover{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+ justify-content: center;
+ 
+}
+
+.discover-item-name{
+font-size: 20px;
+text-align: center;
+padding:0.5rem 1rem;
+/* border: 1px solid black */
+}
+
+.item-canvas{
+
+}

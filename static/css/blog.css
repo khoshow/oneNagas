@@ -1,0 +1,364 @@
+@media only screen and (max-width: 600px) {
+  .my-side {
+    display: none;
+    position: sticky;
+    top: 400px;
+  }
+  .show-only-desktop {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .show-only-mobile {
+    display: none;
+  }
+  .below-title-desktop {
+    display: flex;
+    align-items: center;
+  }
+}
+
+body {
+}
+
+button {
+  outline: none !important;
+}
+
+.featured-image {
+  height: 30vh;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-side-content {
+  position: sticky;
+  top: 100px;
+  z-index: 1;
+}
+
+h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 40px;
+  color: #292929;
+  font-style: normal;
+  font-weight: lighter;
+}
+p {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
+}
+
+.card-body {
+  font-size: 16px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  padding: 5px;
+}
+
+.name-posted-by-card {
+  font-size: 18px;
+  text-decoration: none;
+  color: #179771;
+}
+
+.main-photo-smallcard {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+width: 200px;
+  height:150px
+ 
+}
+.photo-posted-by-card {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 1px solid rgb(87, 214, 93);
+}
+
+.card-body-canvas {
+  padding: 3px;
+}
+.likesButton {
+  border: none;
+  background: none;
+}
+
+.usersLikeButton {
+  border: none;
+  background: none;
+}
+.likesButton:hover {
+  border: none;
+  background: rgb(77, 194, 106);
+}
+
+.siteButton {
+  border: 1px solid #2d2424;
+  padding: 5px;
+  background-color: #e5e5e5;
+}
+
+.siteButtonClicked {
+  border: 1px solid #2d2424;
+  color: black;
+  padding: 5px;
+  background-color: #28a745;
+}
+
+/* Pop up of the users who liked */
+.likePhotoProfile {
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.likeStructure {
+  display: flex;
+  align-items: center;
+}
+
+.BUTTON_WRAPPER_STYLES {
+  position: "relative";
+  z-index: 1;
+}
+
+.OTHER_CONTENT_STYLES {
+  position: "relative";
+  z-index: 2;
+  background-color: "red";
+  padding: "10px";
+}
+
+.likeName {
+  text-align: center;
+}
+
+/* Comments */
+.load-comments-button {
+  width: 100%;
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(212, 209, 209);
+  border: 1px solid black;
+}
+
+.load-comments-icon {
+  padding: 0 1rem;
+}
+
+.comments-box {
+  padding: 0 1rem;
+}
+
+.all-comments-box {
+  background-color: white;
+}
+
+.reply-like-div {
+  display: flex;
+
+  margin-left: 3rem;
+  padding: 0;
+  align-items: center;
+}
+
+.text-ar {
+  height: 100%;
+  width: 100%;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+.reply-like-div p {
+}
+
+.comment-like-button {
+  margin: 0 !important;
+  margin-right: 0.5rem;
+}
+
+.comment-reply-button {
+  margin: 0 1rem 0 1rem;
+  padding: 0;
+  border: none;
+  background: none;
+  align-items: center;
+}
+
+.no-comments-message {
+  margin: 2px;
+  margin: 1rem 1rem;
+  max-width: 80vw;
+  text-align: center;
+  background-color: rgb(29, 211, 44);
+  border: 2px solid rgb(29, 211, 44);
+}
+
+.comments-username-image-div {
+  align-items: center;
+  align-content: center;
+}
+
+.contentAfterCommentByName {
+  margin-left: 3rem;
+}
+
+.commentByName {
+  font-weight: bold;
+}
+.comments-username-image-div p {
+  margin: 0 0 0 1rem;
+}
+
+.commentBy {
+  align-items: center;
+}
+p.commentBy {
+  margin: 0;
+}
+.hello-comment {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.like-button {
+  margin-left: 1rem;
+  color: #505257;
+  border: none;
+  outline: none;
+}
+
+.unlike-button {
+  color: #505257;
+  border: none;
+  border-radius: 8px;
+  background-color: #c6eecd;
+  outline: none;
+}
+
+.like-thumb {
+  font-size: 10px !important;
+}
+
+.like-numberOfLike-div {
+  margin-left: 0;
+  display: inline-flex;
+}
+
+.usersLikeButton {
+  float: right;
+}
+
+.usersLikeButton p {
+  color: #505257;
+}
+
+.dont-show-comment-after-post {
+  display: none;
+}
+
+.edit-comment-form {
+  position: inline-flex;
+
+  max-width: 80vw;
+  z-index: 100;
+}
+
+.edit-delete-comment {
+  display: inline-flex;
+}
+
+/* Replies to comments section */
+.reply-like-to-comment-div {
+  margin-left: 1rem;
+  margin-bottom: 0;
+}
+
+.reply-like-button {
+ background-color: inherit;
+ 
+  border: none;
+  font-size: 14px;
+  height: 10px !important;
+}
+
+.replies-div p {
+  margin-bottom: 0;
+}
+.contentAfterReplyByName p {
+  margin-bottom: 0;
+}
+.reply-reply-button {
+  color: #505257;
+  /* margin-left: 2rem; */
+
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 14px;
+}
+.replies-div-canvas {
+  padding-bottom: 0;
+}
+
+.replyByName {
+  font-weight: 600;
+  font-size: 15px;
+}
+.contentAfterReplyByName {
+  margin-left: 2rem;
+}
+.reply-like-to-comment-div {
+  /* margin-left:2rem; */
+}
+
+.show {
+  display: flex;
+}
+
+.dontShow {
+  display: none;
+  visibility: hidden;
+}
+
+.post-new-reply-div {
+  /* margin-left: 3rem; */
+  max-width: 500px;
+}
+
+.load-replies-button {
+  border: none;
+  background-color: #92d858;
+}
+
+.no-load-replies-button {
+  display: none;
+}
+
+.loadReplies-div {
+  margin-left: 0;
+}
+
+.post-reply-form {
+  display: flex;
+}
+
+.yoyo {
+  /* position:inline-flex; */
+
+  max-width: 80vw;
+  z-index: 100;
+  margin: 0 0 0;
+}
+
+/* .reply-box{
+width: 400px;
+max-width: 80vw;
+} */
+/* Replies to comments section */
+/* End of Commets section */
