@@ -147,7 +147,7 @@ const BLogComments = ({ blogId, blogSlug }) => {
 
 
             <div className="show-comments-box">{showComments()}</div>
-            <div className="col-md-12">  {postCommentForm()}</div>
+            {postCommentForm()}
           
 
         </div>
