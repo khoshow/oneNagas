@@ -29,3 +29,4 @@ export const getWriterOfTheWeek = () => {
         })
         .catch(err => console.log(err));
 };
+

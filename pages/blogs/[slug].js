@@ -102,7 +102,7 @@ const SingleBlog = ({ blog, query }) => {
         console.log(writer.error);
       } else {
         // console.log(data);
-        console.log("Writer's followers: " + writer.user.followers);
+        // console.log("Writer's followers: " + writer.user.followers);
         for (var i = 0; i < writer.user.followers.length; i++) {
           if (isAuth() && isAuth()._id == writer.user.followers[i]) {
             setFollowing(true);
@@ -113,18 +113,18 @@ const SingleBlog = ({ blog, query }) => {
           }
         }
 
-        console.log("From inside: " + following);
-        console.log(writer.user.followers.length);
-        console.log(writer.user.followers[1]);
+        // console.log("From inside: " + following);
+        // console.log(writer.user.followers.length);
+        // console.log(writer.user.followers[1]);
       }
     });
   };
 
   useEffect(() => {
-    console.log("From Blog: " + blog.postedBy);
+    // console.log("From Blog: " + blog.postedBy);
     likeOrNot();
     followOrUnfollow();
-    console.log("Form Outside: " + following);
+    // console.log("Form Outside: " + following);
     loadRelated();
   }, []);
 
@@ -234,7 +234,7 @@ const SingleBlog = ({ blog, query }) => {
       if (data.error) {
         console.log(data.error);
       } else {
-        console.log(blog);
+        // console.log(blog);
         setTheBlog(data);
         setLiked(true);
       }
@@ -249,7 +249,7 @@ const SingleBlog = ({ blog, query }) => {
       if (data.error) {
         console.log(data.error);
       } else {
-        console.log(blog);
+        // console.log(blog);
         setTheBlog(data);
         setLiked(false);
       }
@@ -403,12 +403,12 @@ const SingleBlog = ({ blog, query }) => {
   const followTheWriter = () => {
     const writer = blog.postedBy._id;
     const token = getCookie("token");
-    console.log("ID: " + blog.postedBy._id);
+    // console.log("ID: " + blog.postedBy._id);
     followWriter(writer, token).then((data) => {
       if (data.error) {
         console.log(data.error);
       } else {
-        console.log("Hello Data: " + data);
+        // console.log("Hello Data: " + data);
 
         setFollowing(true);
       }
@@ -423,7 +423,7 @@ const SingleBlog = ({ blog, query }) => {
       if (data.error) {
         console.log(data.error);
       } else {
-        console.log("Hello Data: " + data);
+        // console.log("Hello Data: " + data);
         setFollowing(false);
       }
     });

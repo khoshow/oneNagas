@@ -1,16 +1,16 @@
 import getConfig from 'next/config';
-const { env } = getConfig();
+const { publicRuntimeConfig } = getConfig();
 
-export const API = env.PRODUCTION
-    ? env.API_PRODUCTION
-    : env.API_DEVELOPMENT;
+export const API = publicRuntimeConfig.PRODUCTION
+    ? publicRuntimeConfig.API_PRODUCTION
+    : publicRuntimeConfig.API_DEVELOPMENT;
 
-export const APP_NAME = env.APP_NAME;
+export const APP_NAME = publicRuntimeConfig.APP_NAME;
 
-export const DOMAIN = env.PRODUCTION
-    ? env.DOMAIN_PRODUCTION
-    : env.DOMAIN_DEVELOPMENT;
+export const DOMAIN = publicRuntimeConfig.PRODUCTION
+    ? publicRuntimeConfig.DOMAIN_PRODUCTION
+    : publicRuntimeConfig.DOMAIN_DEVELOPMENT;
 
-export const FB_APP_ID = env.FB_APP_ID;
-export const DISQUS_SHORTNAME = env.DISQUS_SHORTNAME;
-export const GOOGLE_CLIENT_ID = env.GOOGLE_CLIENT_ID
+export const FB_APP_ID = publicRuntimeConfig.FB_APP_ID;
+export const DISQUS_SHORTNAME = publicRuntimeConfig.DISQUS_SHORTNAME;
+export const GOOGLE_CLIENT_ID = publicRuntimeConfig.GOOGLE_CLIENT_ID

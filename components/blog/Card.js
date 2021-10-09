@@ -45,7 +45,7 @@ const Card = ({ blog }) => {
                 <Link href={`/profile/${blog.postedBy.username}`}>
                   <a>
                     <h4 className="username"> {blog.postedBy.name}</h4>
-                    {console.log(blog)}
+                    {/* {console.log(blog)} */}
                   </a>
                 </Link>
               </div>

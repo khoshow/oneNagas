@@ -233,14 +233,12 @@ const Index = ({
             <div className="text-center">
               <div className="text-center">
                 <div
-                  className="col-sm-6 ml-auto mr-auto home-main-heading"
+                  className="col-sm-7 ml-auto mr-auto home-main-heading"
                   style={{ marginTop: "10vh" }}
                 >
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s,
-                  </p>
+                  <h1>Created to take the world closer to our Naga family!                 
+                  </h1>
+                  <h2>We believe your stories could be the next big thing. So, write something awesome today!</h2>
                 </div>
                 <div>
                   <Link href="/discover">
@@ -253,7 +251,7 @@ const Index = ({
               </div>
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-5">
             <div className="home-image-div">
               <img
                 className="home-image"

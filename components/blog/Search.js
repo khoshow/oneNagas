@@ -66,11 +66,11 @@ const Search = () => {
     // );
 
     const searchForm = () => {
-        return <form onSubmit={searchSubmit} className="d-flex">
-            <div className="row nav-item">
-                <input className="form-control" type="search" placeholder="Search" aria-label="Search" onChange={handleChange} />
+        return <form onSubmit={searchSubmit} className="">
+          
+                <input className="form-control nav-link" type="search" placeholder="Search" aria-label="Search" onChange={handleChange} />
                
-            </div>
+        
 
         </form>
 
@@ -80,8 +80,8 @@ const Search = () => {
 
 
     return (
-        <div className="">
-            <div className="ml-4">{searchForm()}</div>
+        <div className="search-form">
+          {searchForm()}
             {searched && <div style={{ marginTop: '-20px', marginBottom: '-80px' }}>{searchedBlogs(results)}</div>}
         </div>
     );
