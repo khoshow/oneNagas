@@ -30,6 +30,7 @@ const SigninComponent = () => {
 
         signin(user).then(data => {
             if (data.error) {
+                console.log(data.error)
                 setValues({ ...values, error: data.error, loading: false });
             } else {
                 // save user token to cookie
@@ -78,14 +79,11 @@ const SigninComponent = () => {
                 </div>
 
                 <div className="text-center">
-                    <button className="btn btn-primary ">Signin</button>
+                    <button className="btn btn-primary ">Sign In</button>
                    
                 </div>
-                <div className="text-center">
-                <br/>
-                    <Link href="/auth/password/forgot">
-                <a className="">Forgot password?</a>
-            </Link></div>
+               
+                
                 
             </form>
         );
@@ -97,8 +95,23 @@ const SigninComponent = () => {
             {showLoading()}
             {showMessage()}
             <LoginGoogle />
+            <p>OR</p>
             {showForm && signinForm()}
+            <div className="text-center">
            
+                <br/>
+                <p>New Here? Sign Up</p>
+                <Link href="/signup">
+                <a className="btn btn-outline-primary">Sign Up</a>
+            </Link>
+                    
+                   
+                </div>
+                <div className="text-center">
+                <br/>
+                    <Link href="/auth/password/forgot">
+                <a className="">Forgot password?</a>
+            </Link></div>
         </React.Fragment>
     );
 };

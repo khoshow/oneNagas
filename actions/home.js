@@ -25,6 +25,7 @@ export const getWriterOfTheWeek = () => {
         method: 'GET'
     })
         .then(response => {
+            console.log("helklo me")
             return response.json();
         })
         .catch(err => console.log(err));

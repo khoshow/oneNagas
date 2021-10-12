@@ -8,29 +8,29 @@ import GoogleLogin from 'react-google-login'
 import {getTempProfilePhoto } from '../../actions/user';
 
 const SignupGoogle = () => {
-    const [values, setValues] = useState({       
-        photo: ''
-    });
+//     const [values, setValues] = useState({       
+//         photo: ''
+//     });
 
-const [photo, setPhoto] = useState()
+// const [photo, setPhoto] = useState()
 
 
-    const loadPhoto = ()=>{
-        getTempProfilePhoto().then(data=>{
-             if(data.error){
-                 console.log(data.error);
-             }else{
-                 setPhoto(data.photo)
+//     const loadPhoto = ()=>{
+//         getTempProfilePhoto().then(data=>{
+//              if(data.error){
+//                  console.log(data.error);
+//              }else{
+//                  setPhoto(data.photo)
                  
-             }
-         })
+//              }
+//          })
        
-     }
+//      }
      
-         useEffect(() => {
+//          useEffect(() => {
           
-             loadPhoto()
-         }, []);
+//              loadPhoto()
+//          }, []);
 
 const responseGoogle = (response)=>{
     // console.log(response);
@@ -57,7 +57,7 @@ const responseGoogle = (response)=>{
         <div className="pb-3">
             <GoogleLogin
                 clientId={`${GOOGLE_CLIENT_ID}`}
-                buttonText="Sign up with Google"
+                buttonText="Sign Up with Google"
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
                theme="dark"

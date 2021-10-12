@@ -4,6 +4,7 @@ import moment, { now } from "moment";
 import { API } from "../../config";
 import { smartTrim } from "../../helpers/trim";
 import { DOMAIN } from "../../config";
+
 const EditorsPicks = ({ blog }) => {
   blog.excerpt = smartTrim(blog.excerpt, 100, " ", " ...");
   const excerpt = blog.excerpt.replace(/<[^>]*>?/gm, "");

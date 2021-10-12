@@ -2,7 +2,7 @@ import Layout from "../../components/Layout";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { withRouter } from "next/router";
-
+import Head from "next/head";
 import EditorsPicks from "../../components/discover/ShowEditorsPicks";
 import { getEditorsPicks } from "../../actions/editorsPicks";
 import { getCategories } from "../../actions/category";
@@ -13,9 +13,44 @@ import DiscoverCategories from "../../components/discover/ShowCategories";
 import DiscoverTags from "../../components/discover/ShowTags";
 import DiscoverTribes from "../../components/discover/ShowTribes";
 import { API } from "../../config";
+import { APP_NAME } from "../../config";
 import { DOMAIN } from "../../config";
 
-const Index = () => {
+const Index = ({router}) => {
+ const head =()=>{
+  <Head>
+      <title>Discover the Nagas | {APP_NAME}</title>
+      <meta
+        name="description"
+        content="Discover lifestyles, news, politics, updates, stories and folktales of the Naga tribes. Sorted by Tags, Categoories, Tribes"
+      />
+      <link rel="canonical" href={`${DOMAIN}${router.pathname}`} />
+      <meta
+        property="og:title"
+        content={`Discover more about the Nagas here. | ${APP_NAME}`}
+      />
+      <meta
+        property="og:description"
+        content="Discover lifestyles, news, politics, updates, stories and folktales of the Naga tribes. Know all about the Nagas and more here."
+      />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={`${DOMAIN}${router.pathname}`} />
+      <meta property="og:site_name" content={`${APP_NAME}`} />
+
+      <meta
+        property="og:image"
+        content={`${DOMAIN}/static/images/couple-Naga.png`}
+      />
+      <meta
+        property="og:image:secure_url"
+        ccontent={`${DOMAIN}/static/images/couple-Naga.png`}
+      />
+      <meta property="og:image:type" content="image/jpg" />
+      {/* <meta property="fb:app_id" content={`${FB_APP_ID}`} /> */}
+     <script></script>
+    </Head>
+ }
+
   const [editorsPick, setEditorsPick] = useState([]);
   const [categories, setCategories] = useState([]);
 
@@ -120,6 +155,7 @@ const Index = () => {
 
   return (
     <Layout>
+      {head()}
       <link rel="stylesheet" href="/static/css/discover.css" />
       <div className="container">
         <br />
@@ -163,4 +199,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default withRouter(Index);
