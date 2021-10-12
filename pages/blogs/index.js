@@ -18,34 +18,35 @@ const Blogs = ({
 }) => {
   const head = () => (
     <Head>
-      <title>Programming blogs | {APP_NAME}</title>
+      <title>Discover the Nagas | {APP_NAME}</title>
       <meta
         name="description"
-        content="Programming blogs and tutorials on react node next vue php laravel and web developoment"
+        content="Discover lifestyles, news, politics, updates, stories and folktales of the Naga tribes. Sorted by Tags, Categoories, Tribes"
       />
       <link rel="canonical" href={`${DOMAIN}${router.pathname}`} />
       <meta
         property="og:title"
-        content={`Latest web developoment tutorials | ${APP_NAME}`}
+        content={`Discover more about the Nagas here. | ${APP_NAME}`}
       />
       <meta
         property="og:description"
-        content="Programming blogs and tutorials on react node next vue php laravel and web developoment"
+        content="Discover lifestyles, news, politics, updates, stories and folktales of the Naga tribes. Know all about the Nagas and more here."
       />
-      <meta property="og:type" content="webiste" />
+      <meta property="og:type" content="website" />
       <meta property="og:url" content={`${DOMAIN}${router.pathname}`} />
       <meta property="og:site_name" content={`${APP_NAME}`} />
 
       <meta
         property="og:image"
-        content={`${DOMAIN}/static/images/seoblog.jpg`}
+        content={`${DOMAIN}/static/images/couple-Naga.png`}
       />
       <meta
         property="og:image:secure_url"
-        ccontent={`${DOMAIN}/static/images/seoblog.jpg`}
+        ccontent={`${DOMAIN}/static/images/couple-Naga.png`}
       />
       <meta property="og:image:type" content="image/jpg" />
-      <meta property="fb:app_id" content={`${FB_APP_ID}`} />
+      {/* <meta property="fb:app_id" content={`${FB_APP_ID}`} /> */}
+     <script></script>
     </Head>
   );
 
