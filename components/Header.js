@@ -38,9 +38,10 @@ const Header = () => {
       <div className="nav-top container">
         <Navbar light expand="md">
           <div className="container-fluid">
-            <Link href="/">
-              <a className="font-weight-bold nav-link">{APP_NAME}</a>
-            </Link>
+            <a href="/" className="font-weight-bold nav-link">
+              {APP_NAME}
+            </a>
+
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
               <Nav className="ml-auto" navbar>
@@ -56,23 +57,18 @@ const Header = () => {
                         <a className="nav-link">Signup</a>
                       </Link>
                     </NavItem>
-                    
-              
                   </React.Fragment>
                 )}
 
-               
-
-               
-                 <NavItem>
-                  <Link href="/discover">
-                    <a className="nav-link">Discover</a>
-                  </Link>
+                <NavItem>
+                  <a href="/discover" className="nav-link">
+                    Discover
+                  </a>
                 </NavItem>
                 <NavItem>
-                  <Link href="/blogs">
-                    <a className="nav-link">Blogs</a>
-                  </Link>
+                  <a href="/blogs" className="nav-link">
+                    Blogs
+                  </a>
                 </NavItem>
                 {isAuth() && isAuth().role === 0 && (
                   <NavItem>
@@ -92,7 +88,8 @@ const Header = () => {
 
                 {isAuth() && (
                   <NavItem>
-                    <a className="nav-link"
+                    <a
+                      className="nav-link"
                       style={{ cursor: "pointer" }}
                       onClick={() => signout(() => Router.replace(`/signin`))}
                     >
@@ -104,7 +101,7 @@ const Header = () => {
                   <Link href="/user/crud/blog">
                     <a
                       className="btn bg-info nav-link"
-                      style={{ color: "white", padding:"0.3rem 1rem"}}
+                      style={{ color: "white", padding: "0.3rem 1rem" }}
                     >
                       Write
                     </a>

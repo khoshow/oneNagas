@@ -6,6 +6,7 @@ module.exports = {
         API_DEVELOPMENT: process.env.API_DEVELOPMENT,
         API_PRODUCTION: process.env.API_PRODUCTION,
         PRODUCTION:process.env.PRODUCTION,
+        APP_PRODUCTION:true,
         DOMAIN_DEVELOPMENT: process.env.DOMAIN_DEVELOPMENT,
         DOMAIN_PRODUCTION: process.env.DOMAIN_PRODUCTION,
         FB_APP_ID: process.env. FB_APP_ID,
