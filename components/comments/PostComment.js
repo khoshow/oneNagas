@@ -21,6 +21,14 @@ const PostComment = ({ blogId, data }) => {
   const { comment, error } = values;
   const token = getCookie("token");
 
+
+  useEffect(() => {
+   if(showCommentAfterPost){
+    Router.reload();
+   }
+
+  }, []);
+
   const submitComment = (req, res) => (e) => {
     console.log("Comingfrom button");
     e.preventDefault();
@@ -33,8 +41,8 @@ const PostComment = ({ blogId, data }) => {
         setShowCommentAfterPost(true);
         setNewData(newData);
         loadNewPost(newData);
-        console.log(newData);
-        console.log("See: " + newData.comments.at(-1).username);
+        // console.log(newData);
+        // console.log("See: " + newData.comments.at(-1).username);
       }
     });
   };
@@ -52,7 +60,7 @@ const PostComment = ({ blogId, data }) => {
   const loadNewPost = (newData) => {
     setShowCommentAfterPost(
       <div>
-        {" "}
+      
         <div className="d-flex flex-wrap comments-username-image-div">
           <img
             src={`${API}/user/photo/${
