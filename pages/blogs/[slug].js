@@ -96,34 +96,24 @@ const SingleBlog = ({ blog, query }) => {
     }
   };
 
-  const followOrUnfollow = () => {
-    userPublicProfile(blog.postedBy.username).then((writer) => {
-      if (writer.error) {
-        console.log(writer.error);
-      } else {
-        // console.log(data);
-        // console.log("Writer's followers: " + writer.user.followers);
-        for (var i = 0; i < writer.user.followers.length; i++) {
-          if (isAuth() && isAuth()._id == writer.user.followers[i]) {
-            setFollowing(true);
-            setFollowers(writer.user.followers.length);
-          } else {
-            setFollowing(false);
-            setFollowers(writer.user.followers.length);
+  const followOrUnfollow = (blog) => {
+   
+          for (var i = 0; i < blog.postedBy.followers.length; i++) {
+            if (isAuth() && isAuth()._id == blog.postedBy.followers[i]) {
+              setFollowing(true);
+              setFollowers(blog.postedBy.followers.length);
+            } else {
+              setFollowing(false);
+              setFollowers(blog.postedBy.followers.length);
+            }
           }
-        }
-
-        // console.log("From inside: " + following);
-        // console.log(writer.user.followers.length);
-        // console.log(writer.user.followers[1]);
-      }
-    });
+  
   };
 
   useEffect(() => {
-    // console.log("From Blog: " + blog.postedBy);
+    // console.log("From Blog: " + blog.postedBy.name);
     likeOrNot();
-    followOrUnfollow();
+    followOrUnfollow(blog);
     // console.log("Form Outside: " + following);
     loadRelated();
   }, []);
