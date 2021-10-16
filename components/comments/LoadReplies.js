@@ -26,7 +26,7 @@ const LoadReplies = ({ blogId, i, data }) => {
                         }}
                         alt="user profile"
                     />
-                    <p className="replyByName">{data.comments[i].replies[r].replyBy.name}</p>
+                   <a href={`/profile/${data.comments[i].replies[r].replyBy.username}`}></a> <p className="replyByName">{data.comments[i].replies[r].replyBy.name}</p>
                 </div>
                 <div className="contentAfterReplyByName"><p>{data.comments[i].replies[r].replyContent}</p></div>
                 <div className="reply-like-to-comment-div">

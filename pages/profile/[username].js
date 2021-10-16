@@ -14,10 +14,12 @@ import { selectWriter } from "../../actions/home";
 import Modal from "../../components/blog/Modal";
 
 const UserProfile = ({ user, blogs, query }) => {
+
   const head = () => (
     <Head>
       <title>
-        {user.username} | {APP_NAME}
+       
+        {user.name} | {APP_NAME}
       </title>
       <meta name="description" content={`Blogs by ${user.username}`} />
       <link rel="canonical" href={`${DOMAIN}/profile/${query.username}`} />
@@ -144,13 +146,13 @@ const UserProfile = ({ user, blogs, query }) => {
     <React.Fragment>
       {head()}
       <Layout>
-        <div className="container">
+        <div className="container" style={{ textAlign: "center",}}>
           <div className="row" style={{ textAlign: "center", border:"1px solid rgb(0, 0, 0, 0.2)", margin:"1rem", padding:"1rem" }}>
             <div className="card">
               <div className="" style={{ backgroundColor: "#E5E5E5" }}>
-                <div className="card-body">
+                <div className="card-body text-center" style={{textAlign:"center"}}>
                   <h3>{user.name}</h3>
-                  <div>
+                  <div style={{marginLeft:"auto", marginRight:"auto"}}>
                     <img
                       src={`${API}/user/photo/${user.username}`}
                       className="img img-thumbnail mb-3"
@@ -207,7 +209,7 @@ const UserProfile = ({ user, blogs, query }) => {
 };
 
 UserProfile.getInitialProps = ({ query }) => {
-  // console.log(query);
+  // console.log("Query: "+query.username);
   return userPublicProfile(query.username).then((data) => {
     if (data.error) {
       console.log(data.error);

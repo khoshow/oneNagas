@@ -61,7 +61,7 @@ const BLogComments = ({ blogId, blogSlug }) => {
                             }}
                             alt="user profile"
                         />
-                        <p className="commentByName">{data.comments[i].commentBy.name}</p>
+                        <a href={`/profile/${data.comments[i].commentBy.username}`}><p>{data.comments[i].commentBy.name}</p></a>
 
                     </div>
                     <div className="contentAfterCommentByName"><p className="commentBy">{data.comments[i].content}</p></div>

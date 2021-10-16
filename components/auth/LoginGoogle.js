@@ -36,7 +36,7 @@ const responseGoogle = (response)=>{
     // console.log(response);
     const tokenId = response.tokenId
     
-    const user = {tokenId, photo}
+    const user = {tokenId}
 
     loginWithGoogle(user).then(data=>{
         if(data.error){

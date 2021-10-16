@@ -586,12 +586,16 @@ const SingleBlog = ({ blog, query }) => {
                       }}
                       alt="user profile"
                     />
-                    <p> &nbsp; {blog.postedBy.name} </p>
+                  
+                    <Link href={`/profile/${blog.postedBy.username}`}>
+                            <a><p>&nbsp;{blog.postedBy.name}</p></a>
+                          </Link>
                     <p> &nbsp;&nbsp; | &nbsp;&nbsp; {moment(blog.updatedAt).format("MMM DD YYYY")}</p>
                   </div>
                     <section>
                       <div className="container">
                         <div className="show-only-mobile">
+                          <div className="d-flex" style={{alignItems:"center"}}>
                           <img
                             src={`${API}/user/photo/${blog.postedBy.username}`}
                             className="img img-thumbnail mb-3"
@@ -603,13 +607,17 @@ const SingleBlog = ({ blog, query }) => {
                             alt="user profile"
                           />
                           <Link href={`/profile/${blog.postedBy.username}`}>
-                            <a>{blog.postedBy.username}</a>
+                            <a><p>&nbsp;{blog.postedBy.name}&nbsp;</p></a>
                           </Link>
-                          | {moment(blog.updatedAt).format("MMM DD YYYY")}
+                          <p> | {moment(blog.updatedAt).format("MMM DD YYYY")}</p>
+                          </div>
+                         
+                        
                           {adminRole()}
                           {showSuccess()}
                           {showError()}
                           <ReactShare blog={blog} />
+                          <br />
                           <div className="pb-3">
                             {showBlogCategories(blog)}
                             {showBlogTags(blog)}

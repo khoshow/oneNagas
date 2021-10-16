@@ -94,13 +94,13 @@ const ReplyLikes = ({ blogId, i, data, r }) => {
               style={{ marginLeft: "3px", }}
               onClick={() => unlikeTheReply()}
             >
-              <i class="fas fa-thumbs-up">Liked</i>
+              <i className="fas fa-thumbs-up">Liked</i>
             </button>
             : <button
               className="like-button"
               style={{ marginLeft: "3px", }}
               onClick={() => likeTheReply()}
-            ><i class="far fa-thumbs-up">Like</i>
+            ><i className="far fa-thumbs-up">Like</i>
             </button>
           }
 
