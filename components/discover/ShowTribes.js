@@ -15,7 +15,7 @@ const ShowTribes = ({ tribes }) => {
     // };
 
     const slug = tribes.slug;
-    console.log(slug);
+    // console.log(slug);
     const hel = String(slug);
 
     return (

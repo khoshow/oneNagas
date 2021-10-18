@@ -15,7 +15,7 @@ const ShowTags = ({ tags }) => {
     // };
 
     const slug = tags.slug;
-    console.log(slug);
+    // console.log(slug);
     const hel = String(slug);
 
     return (

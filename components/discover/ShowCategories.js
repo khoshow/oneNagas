@@ -15,7 +15,7 @@ const ShowCategories = ({ categories }) => {
     // };
 
     const slug = categories.slug;
-    console.log(slug);
+    // console.log(slug);
     const hel = String(slug);
 
     return (
