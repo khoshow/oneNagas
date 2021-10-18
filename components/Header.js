@@ -21,6 +21,7 @@ import {
 } from "reactstrap";
 import ".././node_modules/nprogress/nprogress.css";
 import Search from "./blog/Search";
+import Modal from "./blog/Modal";
 
 Router.onRouteChangeStart = (url) => NProgress.start();
 Router.onRouteChangeComplete = (url) => NProgress.done();
@@ -28,6 +29,7 @@ Router.onRouteChangeError = (url) => NProgress.done();
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenLogin, setIsOpenLogin] = useState(false);
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -45,21 +47,45 @@ const Header = () => {
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
               <Nav className="ml-auto" navbar>
-                {!isAuth() && (
-                  <React.Fragment>
-                    <NavItem className="nav-item">
-                      <Link href="/signin">
-                        <a className="nav-link">Signin</a>
-                      </Link>
-                    </NavItem>
-                    <NavItem>
-                      <Link href="/signup">
-                        <a className="nav-link">Signup</a>
-                      </Link>
-                    </NavItem>
-                  </React.Fragment>
+                {isAuth() ? (
+                  
+                    <Link href="/user/crud/blog">
+                      <a
+                        className="btn btn-info"                  
+                      >
+                        Write
+                      </a>
+                    </Link>
+               
+                ) : (
+                  <div className="text-center">
+                    <div
+                      className="BUTTON_WRAPPER_STYLES"
+                      onClick={() => console.log("clicked")}
+                      
+                    >
+                      <a
+                        className="btn btn-info"
+                        style={{ color: "white", padding: "0.3rem 1rem", }}
+                        onClick={() => setIsOpenLogin(true)}
+                      >
+                       Write
+                      </a>
+                      <Modal
+                        open={isOpenLogin}
+                        onClose={() => setIsOpenLogin(false)}
+                      >
+                        <div>
+                          <h4>Please log in to start writing!</h4>
+                          <Link href={`/signin`}>
+                            <a className=" btn btn-primary">Sign in</a>
+                          </Link>
+                        </div>
+                      </Modal>
+                    </div>
+                    <div className="OTHER_CONTENT_STYLES"></div>
+                  </div>
                 )}
-
                 <NavItem>
                   <a href="/discover" className="nav-link">
                     Discover
@@ -70,6 +96,16 @@ const Header = () => {
                     Blogs
                   </a>
                 </NavItem>
+                {!isAuth() && (
+                  <React.Fragment>
+                    <NavItem className="nav-item">
+                      <Link href="/signin">
+                        <a className="nav-link">Signin</a>
+                      </Link>
+                    </NavItem>
+                  </React.Fragment>
+                )}
+
                 {isAuth() && isAuth().role === 0 && (
                   <NavItem>
                     <Link href="/user">
@@ -97,16 +133,7 @@ const Header = () => {
                     </a>
                   </NavItem>
                 )}
-                <NavItem>
-                  <Link href="/user/crud/blog">
-                    <a
-                      className="btn bg-info nav-link"
-                      style={{ color: "white", padding: "0.3rem 1rem" }}
-                    >
-                      Write
-                    </a>
-                  </Link>
-                </NavItem>
+
                 <NavItem className="">
                   <Search />
                 </NavItem>
