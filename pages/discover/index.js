@@ -134,7 +134,7 @@ const Index = ({router}) => {
     if (tags) {
       return tags.map((tags, i) => {
         return (
-          <div className="discover-second" key={i}>
+          <div className="d-flex" key={i}>
             <DiscoverTags tags={tags} />
           </div>
         );
@@ -146,7 +146,7 @@ const Index = ({router}) => {
     if (tribes) {
       return tribes.map((tribes, i) => {
         return (
-          <div className="discover-second" key={i}>
+          <div className="d-flex" key={i}>
             <DiscoverTribes tribes={tribes} />
           </div>
         );

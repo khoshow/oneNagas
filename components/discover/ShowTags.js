@@ -18,9 +18,10 @@ const ShowTags = ({ tags }) => {
     // console.log(slug);
     const hel = String(slug);
 
+
+
     return (
-      <div className="">
-        <div className="">
+      
           <div className="discover-items">
             <div className="item-canvas">
               <Link href={`/tags/${tags.slug}`}>
@@ -39,8 +40,7 @@ const ShowTags = ({ tags }) => {
               </Link>
             </div>
           </div>
-        </div>
-      </div>
+       
     );
   };
 
