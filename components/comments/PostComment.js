@@ -30,7 +30,7 @@ const PostComment = ({ blogId, data }) => {
   }, []);
 
   const submitComment = (req, res) => (e) => {
-    console.log("Comingfrom button");
+    // console.log("Comingfrom button");
     e.preventDefault();
     // console.log('create tribe name', name);
     postComment(blogId, comment, token).then((newData) => {
@@ -136,7 +136,7 @@ const PostComment = ({ blogId, data }) => {
           <div className="bd-highlight">
             <div
               className="BUTTON_WRAPPER_STYLES"
-              onClick={() => console.log("clicked")}
+              onClick={() => console.log("")}
             >
               {/* <button onClick={() => setButtonPopup(true)} className="text-center likesButton">{theBlog.likes.length} Likes</button> */}
              

@@ -14,7 +14,7 @@ export const create = (tag, token) => {
         body:tag,     
     })
         .then(response => {
-            console.log(tag.name);
+            // console.log(tag.name);
             handleResponse(response)
             return response.json();
         })
@@ -56,3 +56,25 @@ export const removeTag = (slug, token) => {
         })
         .catch(err => console.log(err));
 };
+
+
+
+
+export const update = (tag, slug, token) => {
+    // console.log("tag: "+ tag);
+        return fetch(`${API}/tag/update/${slug}`, {
+            method: 'PUT',
+            headers: {
+                Accept: 'application/json',           
+                Authorization: `Bearer ${token}`
+            },
+            body: tag
+        })
+            .then(response => {
+                // console.log(tag.name);
+                handleResponse(response)
+                return response.json();
+            })
+            .catch(err => console.log(err));
+    };
+    

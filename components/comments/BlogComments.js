@@ -137,7 +137,7 @@ const BLogComments = ({ blogId, blogSlug }) => {
 
 
     return (
-        <div className="all-comments-box ">
+        <div className="all-comments-box">
             <div className="col">
 
                 <button onClick={loadComments} className="btn load-comments-button"><i className="far fa-comment-alt fa-2x load-comments-icon"></i>  Show Comments</button>

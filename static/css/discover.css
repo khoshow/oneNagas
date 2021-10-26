@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
 
 @media only screen and (min-width: 320px) and (max-width: 720px) {
   .editorPickItem {
@@ -28,46 +27,45 @@
   border-radius: 50%;
 }
 
-p{
-  font-family: 'Merriweather', serif;
+p {
+  font-family: "Merriweather", serif;
   font-size: 13px;
 }
 
-h2{
-  font-family: 'Merriweather', serif;
+h2 {
+  font-family: "Merriweather", serif;
   font-size: 16px;
   color: #292929;
 }
 
-h3{
-  font-family: 'Merriweather', serif;
+h3 {
+  font-family: "Merriweather", serif;
   font-size: 16px;
   color: #292929;
 }
 
-h4{
-  font-family: 'Merriweather', serif;
+h4 {
+  font-family: "Merriweather", serif;
   font-size: 13px;
   color: #292929;
   font-weight: bold;
   text-transform: capitalize;
 }
 
-h5{
-  font-family: 'Merriweather', serif;
+h5 {
+  font-family: "Merriweather", serif;
   font-size: 13px;
-  color: #757575
+  color: #757575;
 }
 
-.photoAndName{
+.photoAndName {
   align-items: center;
   display: flex;
 }
 
-.username{
+.username {
   margin-left: 0.5rem;
 }
-
 
 .img {
   text-indent: 100%;
@@ -75,44 +73,42 @@ h5{
   overflow: hidden;
 }
 
-.discover-image{
-  height:120px;  
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-border-radius: 10px;
+.discover-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
 
-.discover-image:hover{
- cursor: pointer;
+.discover-image:hover {
+  cursor: pointer;
 }
 
-.discover-items{
+.discover-items {
+  text-align: center;
   align-items: center;
-  border:1px solid rgb(68, 63, 69, 0.2);  
-  padding: 1rem;
-
-
+  border: 1px solid rgb(68, 63, 69, 0.2);
+  margin:0.5rem;
+  padding: 5px;
 }
 
-.discover-second{
+
+.discover-second {
   margin: 1rem;
 }
-.discover-cover{
+.discover-cover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
- justify-content: center;
+  justify-content: center;
  
 }
 
-.discover-item-name{
-font-size: 20px;
-text-align: center;
-padding:0.5rem 1rem;
-/* border: 1px solid black */
+.discover-item-name {
+  font-size: 16px;
+  text-align: center;
+  
+  /* border: 1px solid black */
 }
 
-.item-canvas{
-
+.item-canvas {
 }

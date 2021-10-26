@@ -59,7 +59,7 @@ const Tribes = ({ router }) => {
     return tribes.map((t, i) => {
       return (
         <Link href={`/admin/tribe-update/${t.slug}`}  key={i}>
-          <a className="btn btn-outline-primary mr-1 ml-1 mt-3" >{t.slug}</a>
+          <a className="btn btn-outline-primary mr-1 ml-1 mt-3" >{t.name}</a>
         </Link>
       );
     });

@@ -12,7 +12,7 @@ const AdminIndex = () => {
               <h1>Admin Dashboard</h1>
             </div>
             <div className="col-md-4">
-              <ul class="list-group">
+              <ul className="list-group">
                 <li className="list-group-item bg-dark">
                   <Link href="/admin/crud/blog">
                     <a  style={{color:"#E5E5E5"}}>Write</a>

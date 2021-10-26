@@ -60,7 +60,7 @@ export const getTempProfilePhoto = () => {
 };
 
 export const followWriter = (follows, token) => {
-    console.log("follows: "+follows);
+    // console.log("follows: "+follows);
     return fetch(`${API}/follows`, {
         method: 'PUT',
         headers: {         

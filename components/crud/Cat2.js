@@ -60,54 +60,13 @@ const Cat2 = ({ router }) => {
     return categories.map((c, i) => {
       return (
         <Link href={`/admin/category-update/${c.slug}`}  key={i}>
-          <a className="btn btn-outline-primary mr-1 ml-1 mt-3" >{c.slug}</a>
+          <a className="btn btn-outline-primary mr-1 ml-1 mt-3" >{c.name}</a>
         </Link>
       );
     });
   };
 
-  // const showCategories = () => {
-  //   return categories.map((c, i) => {
-  //     return (
-  //       <button
-  //         onDoubleClick={() => deleteConfirm(c.slug)}
-  //         title="Double click to delete"
-  //         key={i}
-  //         className="btn btn-outline-primary mr-1 ml-1 mt-3"
-  //       >
-  //         {c.name}
-  //       </button>
-  //     );
-  //   });
-  // };
-
-  const deleteConfirm = (slug) => {
-    let answer = window.confirm(
-      "Are you sure you want to delete this category?"
-    );
-    if (answer) {
-      deleteCategory(slug);
-    }
-  };
-
-  const deleteCategory = (slug) => {
-    // console.log('delete', slug);
-    removeCategory(slug, token).then((data) => {
-      if (data.error) {
-        console.log(data.error);
-      } else {
-        setValues({
-          ...values,
-          error: false,
-          success: false,
-          name: "",
-          removed: !removed,
-        });
-      }
-    });
-  };
-
-  const publishBlog = (e) => {
+  const publishCategory = (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("photo", selectedFile);
@@ -205,9 +164,9 @@ const Cat2 = ({ router }) => {
 
   // <input type="text" className="form-control" onChange={handleChange} value={name} required />
 
-  const createBlogForm = () => {
+  const createCategoryForm = () => {
     return (
-      <form onSubmit={publishBlog}>
+      <form onSubmit={publishCategory}>
         <div className="form-group">
           <br></br>
           <hr />
@@ -250,7 +209,7 @@ const Cat2 = ({ router }) => {
     <div className="container-fluid pb-5">
       <div className="row">
         <div className="col-md-8">
-          {createBlogForm()}
+          {createCategoryForm()}
           <div className="pt-3">
             {showCategories()}
             {showError()}

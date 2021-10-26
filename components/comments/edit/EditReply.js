@@ -23,7 +23,7 @@ const EditReply = ({ blogId, i, data, r }) => {
 
   const showEditReply = () => {
     if (isAuth() && isAuth()._id == data.comments[i].replies[r].replyBy._id) {
-      console.log("hdfg: " + data.comments[i].replies[r].commentBy);
+      // console.log("hdfg: " + data.comments[i].replies[r].commentBy);
       return <button
         className="unlike-button"
         style={{ marginLeft: "1rem", }}
@@ -45,7 +45,7 @@ const EditReply = ({ blogId, i, data, r }) => {
 
   const postEditReply = (req, res) => e => {
     e.preventDefault();
-    console.log("trje");
+    // console.log("trje");
     const replyId = data.comments[i].replies[r]._id
     editReply(blogId, replyId, reply, token).then(data => {
       if (data.error) {
@@ -63,12 +63,12 @@ const EditReply = ({ blogId, i, data, r }) => {
         if (data.error) {
           console.log(data.error);
         } else {
-          console.log("Deleted");
+          console.log("");
         }
       });
     } else {
       // Do nothing!
-      console.log('Thing was not saved to the database.');
+      console.log('');
     }
     // const confirm =confirm("Are you sure you want to delete the reply?")
     // if(confirm){
@@ -85,7 +85,7 @@ const EditReply = ({ blogId, i, data, r }) => {
 
   const showDeleteReply = () => {
     if (isAuth() && isAuth()._id == data.comments[i].replies[r].replyBy._id) {
-      console.log("hdfg: " + data.comments[i].replies[r].replyBy._id);
+      // console.log("hdfg: " + data.comments[i].replies[r].replyBy._id);
       return <button
         className="unlike-button"
         style={{ marginLeft: "3px", }}
@@ -104,7 +104,7 @@ const EditReply = ({ blogId, i, data, r }) => {
   }
 
   return <div >
-    {console.log("Com: " + reply)}
+    {/* {console.log("Com: " + reply)} */}
     <div className="d-flex numberOfLike-div">
       <div>{showEditReply()}</div>
       <div>{showDeleteReply()}</div>

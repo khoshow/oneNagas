@@ -19,13 +19,12 @@ const ShowCategories = ({ categories }) => {
     const hel = String(slug);
 
     return (
-      <div className="">
-        <div className="">
-          <div className="discover-items">
+   
+          <div className="discover-items" >
             <div className="item-canvas">
               <Link href={`/categories/${categories.slug}`}>
                 <a>
-                  <h4 className="discover-item-name"> {categories.name}</h4>{" "}
+                  <h4 className="discover-item-name"> {categories.name}</h4>
                 </a>
               </Link>
             </div>
@@ -34,13 +33,13 @@ const ShowCategories = ({ categories }) => {
                 <img
                   src={`${API}/category-image/image/${hel}`}
                   className="discover-image"
+                
                   alt={`${categories.slug}`}
                 />
               </Link>
             </div>
           </div>
-        </div>
-      </div>
+      
     );
   };
 

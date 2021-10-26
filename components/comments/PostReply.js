@@ -17,8 +17,8 @@ import LoadReplies from './LoadReplies';
 
 const PostReply = ({ blogId, i, data }) => {
 
-    console.log("Comment Id :" + data.comments[i]._id);
-    console.log("BLog Id :" + blogId);
+    // console.log("Comment Id :" + data.comments[i]._id);
+    // console.log("BLog Id :" + blogId);
     const [values, setValues] = useState({
         reply: '',
         error: false,
@@ -38,7 +38,7 @@ const PostReply = ({ blogId, i, data }) => {
 
         e.preventDefault();
         const commentId = data.comments[i]._id
-        console.log(commentId);
+        // console.log(commentId);
 
 
         // console.log('create tribe name', name);
@@ -135,7 +135,7 @@ const PostReply = ({ blogId, i, data }) => {
 
                     <div className="bd-highlight">
 
-                        <div className="BUTTON_WRAPPER_STYLES" onClick={() => console.log('clicked')}>
+                        <div className="BUTTON_WRAPPER_STYLES" onClick={() => console.log('')}>
                             {/* <button onClick={() => setButtonPopup(true)} className="text-center likesButton">{theBlog.likes.length} Likes</button> */}
                             <button className="btn btn-primary" onClick={() => setIsOpen(true)}> Reply</button>
                             <Modal open={isOpen} onClose={() => setIsOpen(false)}>

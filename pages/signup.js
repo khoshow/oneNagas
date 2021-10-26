@@ -31,11 +31,11 @@ const Signup = ({router}) => {
 
       <meta
         property="og:image"
-        content={`${DOMAIN}/static/images/couple-Naga.png`}
+        content={`${DOMAIN}/static/images/Nagamei-Logo-White-website.png`}
       />
       <meta
         property="og:image:secure_url"
-        ccontent={`${DOMAIN}/static/images/couple-Naga.png`}
+        ccontent={`${DOMAIN}/static/images/Nagamei-Logo-White-website.png`}
       />
       <meta property="og:image:type" content="image/jpg" />
       {/* <meta property="fb:app_id" content={`${FB_APP_ID}`} /> */}

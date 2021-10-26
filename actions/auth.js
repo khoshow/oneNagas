@@ -18,8 +18,8 @@ export const handleResponse = response =>{
 
 
 export const preSignup = user => {
-    console.log("Uaiu: "+user);
-    console.log("API: "+`${API}/pre-signup`);
+    // console.log("Uaiu: "+user);
+    // console.log("API: "+`${API}/pre-signup`);
     return fetch(`${API}/pre-signup`, {
         method: 'POST',
         headers: {

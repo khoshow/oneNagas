@@ -10,7 +10,7 @@ import ReplyLikes from './ReplyLikes'
 
 const LoadReplies = ({ blogId, i, data }) => {
 
-    console.log("Blog Id start: " + blogId);
+    // console.log("Blog Id start: " + blogId);
     const arr = []
     for (var r = 0; r < data.comments[i].replies.length; r++) {
         arr.push(

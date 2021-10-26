@@ -1,4 +1,5 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, { Html,Head, Main, NextScript } from "next/document";
+// import {Head} from 'next/head'
 import React from "react";
 import ReactDOM from "react-dom";
 import getConfig from "next/config";
@@ -15,7 +16,7 @@ class MyDocument extends Document {
       
         gtag('config', 'G-ZP3BPHFM9N');  
     `,
-      }
+      };
     }
   }
 
@@ -24,7 +25,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+       
           <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
@@ -46,7 +47,10 @@ class MyDocument extends Document {
             type="image/gif"
             sizes="16x16"
           />
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZP3BPHFM9N"></script>
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-ZP3BPHFM9N"
+          ></script>
           <script dangerouslySetInnerHTML={this.setGoogleTags()}></script>
         </Head>
         <body>

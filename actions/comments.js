@@ -19,10 +19,7 @@ export const getComments = slug => {
 
 export const postComment = (blogId, comment, token)=>{
    
-    console.log("id: "+ blogId);
-    console.log("content: "+ comment);
-    // console.log("id: "+ go);
-    // console.log("content: "+ to);
+  
     return fetch(`${API}/comment`, {
         method: 'PUT',
         headers: {

@@ -7,14 +7,14 @@ import Tag from '../../../components/crud/Tag';
 import Tribe from '../../../components/crud/Tribe';
 import Link from 'next/link';
 
-const CategoryTag = () => {
+const ManageTribe = () => {
     return (
         <Layout>
             <Admin>
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-12 pt-5 pb-5">
-                            <h2>Manage Tribes</h2>
+                            <h1>Manage Tribes</h1>
                         </div>
                        
                         <div className="col-md-6">
@@ -28,4 +28,4 @@ const CategoryTag = () => {
     );
 };
 
-export default CategoryTag;
+export default ManageTribe;

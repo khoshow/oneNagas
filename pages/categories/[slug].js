@@ -18,8 +18,8 @@ const Category = ({ category, blogs }) => {
                     <header>
                         <br/>
                         <br/>
-                        {console.log("Category: "+ category)}
-                        {/* <h1>{category.name}</h1> */}
+                        {/* {console.log("Category: "+ category)} */}
+                        <h1>{category.name}</h1>
                         {blogs.map((b, i) => {
                             return <Card key={i} blog={b} />
                         })}

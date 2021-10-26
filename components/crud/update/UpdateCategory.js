@@ -1,39 +1,125 @@
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import Router from 'next/router';
-import dynamic from 'next/dynamic';
-import { withRouter } from 'next/router';
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import Router from "next/router";
+import dynamic from "next/dynamic";
+import { withRouter } from "next/router";
+import { getCookie, isAuth } from "../../../actions/auth";
 
-const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
-import '../../../node_modules/react-quill/dist/quill.snow.css';
+import { update, removeCategory } from "../../../actions/category";
 
-import { API } from '../../../config';
+import { QuillModules, QuillFormats } from "../../../helpers/quill";
 
-const Cat2 = ({ router }) => {
-const slug= router.query.category
-console.log(slug);
-// const category = toTitleCase(slug)
-// console.log("category: " + category);
+const CategoryUpdate = ({ router }) => {
+  const [categoryName, setCategoryName] = useState(router.query.category);
+  const [selectedFile, setSelectedFile] = useState(null);
+  // console.log(router.query.category);
+  const [values, setValues] = useState({
+    name: "",
+    photo: "",
+    error: false,
+    success: false,
+    categories: [],
+    removed: false,
+    formData: "",
+  });
 
-// function toTitleCase(str) {
-//     return str.replace(
-//       /\w\S*/g,
-//       function(txt) {
-//         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-//       }
-//     );
-//   }
+  const { name, error, success, categories, removed, formData } = values;
 
+  const token = getCookie("token");
 
-  const handlePhoto =()=>{
+  const slug = router.query.category;
 
-  }
+  const updateCategory = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("photo", selectedFile);
+    formData.append("name", categoryName);
+    update(formData, slug, token).then((data) => {
+      if (data.error) {
+        setValues({ ...values, error: data.error });
+      } else {
+        setValues({
+          ...values,
+          name: "",
+          photo: "",
+          error: "",
+          formData: "",
+          success: `Category "${data.name}" is updated`,
+        });
+      }
+    });
+  };
 
-  const handleName =()=>{
-      
-}
+  const handlePhoto = (e) => {
+    // console.log(e.target.value);
+    const photo = e.target.files[0];
+    setValues({
+      ...values,
+      photo: photo,
+      error: false,
+      success: false,
+      removed: "",
+    });
+    setSelectedFile(photo);
+  };
+
+  const handleName = (name) => (e) => {
+    const name = e.target.value;
+
+    setValues({
+      ...values,
+      name: e.target.value,
+      error: false,
+      success: false,
+      removed: "",
+    });
+    setCategoryName(name);
+  };
+
+  const deleteConfirm = () => {
+    let answer = window.confirm(
+      "Are you sure you want to delete this category?"
+    );
+    if (answer) {
+      console.log("Button Delete Clicked");
+      deleteCategory();
+    }
+  };
+
+  const deleteCategory = () => {
+    // console.log('delete', slug);
+    removeCategory(categoryName, token).then((data) => {
+      if (data.error) {
+        console.log(data.error);
+      } else {
+        setValues({ ...values, success: `Category "${data.name}" is deleted` });
+      }
+    });
+  };
+
+  const showError = () => (
+    <div
+      className="alert alert-danger"
+      style={{ display: error ? "" : "none" }}
+    >
+      {error}
+    </div>
+  );
+
+  const showSuccess = () => (
+    <div
+      className="alert alert-success"
+      style={{ display: success ? "" : "none" }}
+    >
+      {success}
+    </div>
+  );
+
+  // <input type="text" className="form-control" onChange={handleChange} value={name} required />
+
+  const updateCategoryForm = () => {
     return (
-        <form >
+      <form onSubmit={updateCategory}>
         <div className="form-group">
           <br></br>
           <hr />
@@ -41,7 +127,7 @@ console.log(slug);
           <input
             type="text"
             className="form-control"
-            value={slug}
+            value={categoryName}
             onChange={handleName("hello")}
             required
           />
@@ -65,14 +151,29 @@ console.log(slug);
 
         <div>
           <button type="submit" className="btn btn-primary">
-          Update
-          </button>
-          <button type="submit" className="btn btn-primary">
-            Delete
+            Update
           </button>
         </div>
       </form>
-    )
-}
+    );
+  };
 
-export default withRouter(Cat2)
+  return (
+    <div className="container-fluid pb-5">
+      <div className="row">
+        <div className="col-md-8">
+          {showError()}
+          {showSuccess()}
+          {updateCategoryForm()}
+          <div className="pt-3">
+            <button type="" className="btn btn-primary" onClick={deleteConfirm}>
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default withRouter(CategoryUpdate);

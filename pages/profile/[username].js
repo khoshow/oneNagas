@@ -1,8 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
-import React from "react";
 import ReactDOM from "react-dom";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { getCookie, isAuth } from "../../actions/auth";
 import Layout from "../../components/Layout";
 import { userPublicProfile } from "../../actions/user";
@@ -10,15 +9,17 @@ import { API, DOMAIN, APP_NAME, FB_APP_ID } from "../../config";
 import moment from "moment";
 import ContactForm from "../../components/form/ContactForm";
 import WriterBlogs from "../../components/blog/WriterBlogs";
-import { selectWriter } from "../../actions/home";
+import {
+  selectWriter,
+  deselectWriter,
+  getWriterOfTheWeek,
+} from "../../actions/home";
 import Modal from "../../components/blog/Modal";
 
-const UserProfile = ({ user, blogs, query }) => {
-
+const UserProfile = ({ user, blogs, pickedAuthors, query }) => {
   const head = () => (
     <Head>
       <title>
-       
         {user.name} | {APP_NAME}
       </title>
       <meta name="description" content={`Blogs by ${user.username}`} />
@@ -31,11 +32,11 @@ const UserProfile = ({ user, blogs, query }) => {
 
       <meta
         property="og:image"
-        content={`${DOMAIN}/static/images/seoblog.jpg`}
+        content={`${DOMAIN}/static/images/nagamei-favicon.png`}
       />
       <meta
         property="og:image:secure_url"
-        content={`${DOMAIN}/static/images/seoblog.jpg`}
+        content={`${DOMAIN}/static/images/nagamei-favicon.png`}
       />
       <meta property="og:image:type" content="image/jpg" />
       <meta property="fb:app_id" content={`${FB_APP_ID}`} />
@@ -45,7 +46,12 @@ const UserProfile = ({ user, blogs, query }) => {
   );
 
   const [writerSelectMessage, setWriterSelectMessage] = useState([]);
+  const [writerSelected, setWriterSelected] = useState();
   const [isOpen, setIsOpen] = useState(false);
+
+  // useEffect(() => {
+  //   writerOfTheWeeek()
+  // }, []);
 
   const showUserBlogs = () => {
     return blogs.map((blog, i) => {
@@ -60,40 +66,121 @@ const UserProfile = ({ user, blogs, query }) => {
 
   const token = getCookie("token");
 
-  const selectAuthor = () => {
+  const selectedOrNot = () => {};
+
+  // const writerOfTheWeeek = ()=>{
+  //   getWriterOfTheWeek().then((data)=>{
+  //     if(data.error){
+  //       console.log(data.error);
+  //     }else if(data.length>0){
+  //       for(var i=0; i<data.length; i++){
+  //         if(data[i].username ==user.username){
+  //           setWriterSelected(true)
+  //         }else if(data[i].username !== user.username){
+  //           setWriterSelected(false)
+  //         }
+  //       }
+  //       console.log("Length: "+data.length)
+  //     }else return
+  // } )}
+
+  const likedOrNot = () => {
+    for (var j = 0; j < data.comments[i].likes.length; j++) {
+      if (isAuth() && isAuth()._id == data.comments[i].likes[j]._id) {
+        setLiked(true)
+      } else {
+        setLiked(false)
+      }
+    }
+  }
+
+
+  const writerOfTheWeeek = () => {
+   if(pickedAuthors.length >0){
+      for (var i = 0; i < pickedAuthors.length; i++) {
+        // console.log("Hello Len: "+pickedAuthors.length);
+        if (pickedAuthors[i].username == user.username) {
+          return (
+            <button
+              className="btn btn-outline-secondary mt-3 mb-3 ml-1"
+              onClick={() => unpickAuthor()}
+            >
+              Deselect Author
+            </button>
+          );
+        } else if (pickedAuthors[i].username !== user.username) {
+          return (
+            <button
+              className="btn btn-outline-secondary mt-3 mb-3 ml-1"
+              onClick={() => pickAuthor()}
+            >
+              Pick Author
+            </button>
+          );
+        }
+      }}else{
+        return (
+          <button
+            className="btn btn-outline-secondary mt-3 mb-3 ml-1"
+            onClick={() => pickAuthor()}
+          >
+            Pick Author
+          </button>
+        );
+      }
+     
+     
+  };
+
+  const selectWriterFunction = () => {
     if (isAuth() && isAuth().role == 1) {
-      return (
-        <button
-          className="btn btn-outline-secondary mt-3 mb-3 ml-1"
-          onClick={pickAuthor()}
-        >
-          Pick Author
-        </button>
-      );
-      {
-        selectedMessage();
+      if (writerSelected == false) {
+        return (
+          <form onSubmit={pickAuthor()}>
+            <button className="btn btn-outline-secondary mt-3 mb-3 ml-1">
+              Pick Author
+            </button>
+          </form>
+        );
+      } else if (writerSelected == true) {
+        if (isAuth() && isAuth().role == 1) {
+          return (
+            <form onSubmit={unpickAuthor()}>
+              <button className="btn btn-outline-secondary mt-3 mb-3 ml-1">
+                Deselect Author
+              </button>
+            </form>
+          );
+        }
       }
     }
   };
 
   const pickAuthor = () => {
     const selectedWriter = user.username;
-    console.log(selectedWriter);
+    // console.log(selectedWriter);
     selectWriter(selectedWriter, token).then((data) => {
       if (data.error) {
         console.log(data.error);
       } else {
-        console.log("Hello Data: " + data);
-
-        setWriterSelectMessage("Author Selected");
+        // console.log("Hello Data: " + data);
+        setWriterSelectMessage("Selected Successfully");
+        // setWriterSelected(true)
       }
     });
   };
 
-  const selectedMessage = () => {
-    if (writerSelectMessage) {
-      <p>Author Selected</p>;
-    }
+  const unpickAuthor = () => {
+    const selectedWriter = user.username;
+    deselectWriter(selectedWriter, token).then((data) => {
+      if (data.error) {
+        console.log(data.error);
+      } else {
+        // console.log("Hello Data: " + data);
+        setWriterSelectMessage("Unselected Successfully");
+        // setWriterSelected(false)
+      }
+    });
   };
 
   const noOfFollowers = (user) => {
@@ -108,11 +195,11 @@ const UserProfile = ({ user, blogs, query }) => {
             <button className="text-center btn" onClick={() => setIsOpen(true)}>
               Followers <br /> {user.followers.length}
             </button>
-            {console.log("User: " + user.followers)}
+            {/* {console.log("User: " + user.followers)} */}
             <Modal open={isOpen} onClose={() => setIsOpen(false)}>
               {user.followers.map((follower, i) => (
                 <div key={i} className="row likeStructure">
-                  {console.log("Follower: " + follower)}
+                  {/* {console.log("Follower: " + follower)} */}
                   <div>
                     <img
                       src={`${API}/user/photo/${follower.username}`}
@@ -146,13 +233,24 @@ const UserProfile = ({ user, blogs, query }) => {
     <React.Fragment>
       {head()}
       <Layout>
-        <div className="container" style={{ textAlign: "center",}}>
-          <div className="row" style={{ textAlign: "center", border:"1px solid rgb(0, 0, 0, 0.2)", margin:"1rem", padding:"1rem" }}>
+        <div className="" style={{ textAlign: "center" }}>
+          <div
+            // className="row"
+            style={{
+              textAlign: "center",
+              border: "1px solid rgb(0, 0, 0, 0.2)",
+              margin: "1rem",
+              padding: "1rem",
+            }}
+          >
             <div className="card">
               <div className="" style={{ backgroundColor: "#E5E5E5" }}>
-                <div className="card-body text-center" style={{textAlign:"center"}}>
+                <div
+                  className="card-body text-center"
+                  style={{ textAlign: "center" }}
+                >
                   <h3>{user.name}</h3>
-                  <div style={{marginLeft:"auto", marginRight:"auto"}}>
+                  <div style={{ marginLeft: "auto", marginRight: "auto" }}>
                     <img
                       src={`${API}/user/photo/${user.username}`}
                       className="img img-thumbnail mb-3"
@@ -164,7 +262,7 @@ const UserProfile = ({ user, blogs, query }) => {
                       alt="user profile"
                     />
                   </div>
-                  <div>                    
+                  <div>
                     <p className="text-muted">
                       Joined {moment(user.createdAt).format("DD MMM YYYY")}
                     </p>
@@ -183,7 +281,8 @@ const UserProfile = ({ user, blogs, query }) => {
                     <Link href={`/profile/contact-author/${user.username}`}>
                       <a className="btn btn-outline-secondary ">Message</a>
                     </Link>
-                    {selectAuthor()}
+                    {writerSelectMessage ? <p>{writerSelectMessage}</p> : ""}
+                    {writerOfTheWeeek()}
                   </div>
                 </div>
               </div>
@@ -215,7 +314,9 @@ UserProfile.getInitialProps = ({ query }) => {
       console.log(data.error);
     } else {
       // console.log(data);
-      return { user: data.user, blogs: data.blogs, query };
+      return getWriterOfTheWeek().then((pickedAuthors) => {
+        return { user: data.user, blogs: data.blogs, pickedAuthors, query };
+      });
     }
   });
 };

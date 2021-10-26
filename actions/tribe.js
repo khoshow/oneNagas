@@ -13,7 +13,7 @@ export const create = (tribe, token) => {
         body:tribe,     
     })
         .then(response => {
-            console.log(tribe.name);
+            // console.log(tribe.name);
             handleResponse(response)
             return response.json();
         })
@@ -55,3 +55,25 @@ export const removeTribe = (slug, token) => {
         })
         .catch(err => console.log(err));
 };
+
+
+
+export const update = (tribe, slug, token) => {
+    // console.log("categroy: "+ tribe);
+        return fetch(`${API}/naga-tribe/update/${slug}`, {
+            method: 'PUT',
+            headers: {
+                Accept: 'application/json',           
+                Authorization: `Bearer ${token}`
+            },
+            body: tribe
+        })
+            .then(response => {
+                // console.log(tribe.name);
+                handleResponse(response)
+                return response.json();
+            })
+            .catch(err => console.log(err));
+    };
+    
+    

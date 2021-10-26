@@ -38,11 +38,11 @@ const Blogs = ({
 
       <meta
         property="og:image"
-        content={`${DOMAIN}/static/images/couple-Naga.png`}
+        content={`${DOMAIN}/static/images/Nagamei-Logo-White-website.png`}
       />
       <meta
         property="og:image:secure_url"
-        ccontent={`${DOMAIN}/static/images/couple-Naga.png`}
+        ccontent={`${DOMAIN}/static/images/Nagamei-Logo-White-website.png`}
       />
       <meta property="og:image:type" content="image/jpg" />
       {/* <meta property="fb:app_id" content={`${FB_APP_ID}`} /> */}
@@ -129,18 +129,19 @@ const Blogs = ({
                 <br />
                 <br />
                 <h1 className="font-weight-bold text-center">
-                  Something of the Nagas
+                  Nagamei | Blogs
                 </h1>
               </div>
-              <section>
+              {/* <section>
                 <div className="pb-5 text-center">
                   {showAllCategories()}
                   <br />
                   {showAllTags()}
                 </div>
-              </section>
+              </section> */}
             </header>
           </div>
+          <br />
           <div className="">{showAllBlogs()}</div>
           <div className="container-fluid">{showLoadedBlogs()}</div>
           <div className="text-center pt-5 pb-5">{loadMoreButton()}</div>

@@ -61,7 +61,7 @@ const CommentLikes = ({ blogId, i, data }) => {
       if (data.error) {
         console.log(data.error);
       } else {
-        console.log("Data after unLike:" + data);
+        // console.log("Data after unLike:" + data);
 
         setLiked(true)
 
@@ -83,7 +83,7 @@ const CommentLikes = ({ blogId, i, data }) => {
       if (data.error) {
         console.log(data.error);
       } else {
-        console.log("Data after unLike:" + data);
+        // console.log("Data after unLike:" + data);
 
         setLiked(false)
         setNumberOfLikes(<p>{data.comments[i].likes.length - 1} Likes</p>)
@@ -125,7 +125,7 @@ const CommentLikes = ({ blogId, i, data }) => {
     } else {
       return <div>
 
-      <div className="BUTTON_WRAPPER_STYLES" onClick={() => console.log('clicked')}>         
+      <div className="BUTTON_WRAPPER_STYLES" onClick={() => console.log('')}>         
         <button className="usersLikeButton" onClick={() => setIsOpenLogin(true)}>
           <i
             type="button"
@@ -167,7 +167,7 @@ const CommentLikes = ({ blogId, i, data }) => {
 
         <button className="reply-like-button" onClick={onClick}>Reply</button>
 
-        <div className="BUTTON_WRAPPER_STYLES" onClick={() => console.log('clicked')}>
+        <div className="BUTTON_WRAPPER_STYLES" onClick={() => console.log('')}>
           {/* <button onClick={() => setButtonPopup(true)} className="text-center likesButton">{theBlog.likes.length} Likes</button> */}
           <button className="usersLikeButton" onClick={() => setIsOpen(true)}> {numberOfLikes}</button>
           <Modal open={isOpen} onClose={() => setIsOpen(false)}>

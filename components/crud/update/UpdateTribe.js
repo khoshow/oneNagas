@@ -1,39 +1,125 @@
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import Router from 'next/router';
-import dynamic from 'next/dynamic';
-import { withRouter } from 'next/router';
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import Router from "next/router";
+import dynamic from "next/dynamic";
+import { withRouter } from "next/router";
+import { getCookie, isAuth } from "../../../actions/auth";
 
-const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
-import '../../../node_modules/react-quill/dist/quill.snow.css';
+import { update, removeTribe } from "../../../actions/tribe";
 
-import { API } from '../../../config';
+import { QuillModules, QuillFormats } from "../../../helpers/quill";
 
-const UpdateTribe = ({ router }) => {
-const slug= router.query.category
-console.log(slug);
-// const category = toTitleCase(slug)
-// console.log("category: " + category);
+const TribeUpdate = ({ router }) => {
+  const [tribeName, setTribeName] = useState(router.query.tribe);
+  const [selectedFile, setSelectedFile] = useState(null);
+  // console.log(router.query.tribe);
+  const [values, setValues] = useState({
+    name: "",
+    photo: "",
+    error: false,
+    success: false,
+    categories: [],
+    removed: false,
+    formData: "",
+  });
 
-// function toTitleCase(str) {
-//     return str.replace(
-//       /\w\S*/g,
-//       function(txt) {
-//         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-//       }
-//     );
-//   }
+  const { name, error, success, categories, removed, formData } = values;
 
+  const token = getCookie("token");
 
-  const handlePhoto =()=>{
+  const slug = router.query.tribe;
 
-  }
+  const updateTribe = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("photo", selectedFile);
+    formData.append("name", tribeName);
+    update(formData, slug, token).then((data) => {
+      if (data.error) {
+        setValues({ ...values, error: data.error });
+      } else {
+        setValues({
+          ...values,
+          name: "",
+          photo: "",
+          error: "",
+          formData: "",
+          success: `Tribe "${data.name}" is updated`,
+        });
+      }
+    });
+  };
 
-  const handleName =()=>{
-      
-}
+  const handlePhoto = (e) => {
+    // console.log(e.target.value);
+    const photo = e.target.files[0];
+    setValues({
+      ...values,
+      photo: photo,
+      error: false,
+      success: false,
+      removed: "",
+    });
+    setSelectedFile(photo);
+  };
+
+  const handleName = (name) => (e) => {
+    const name = e.target.value;
+
+    setValues({
+      ...values,
+      name: e.target.value,
+      error: false,
+      success: false,
+      removed: "",
+    });
+    setTribeName(name);
+  };
+
+  const deleteConfirm = () => {
+    let answer = window.confirm(
+      "Are you sure you want to delete this tribe?"
+    );
+    if (answer) {
+      console.log("Button Delete Clicked");
+      deleteTribe();
+    }
+  };
+
+  const deleteTribe = () => {
+    // console.log('delete', slug);
+    removeTribe(tribeName, token).then((data) => {
+      if (data.error) {
+        console.log(data.error);
+      } else {
+        setValues({ ...values, success: `Tribe "${data.name}" is deleted` });
+      }
+    });
+  };
+
+  const showError = () => (
+    <div
+      className="alert alert-danger"
+      style={{ display: error ? "" : "none" }}
+    >
+      {error}
+    </div>
+  );
+
+  const showSuccess = () => (
+    <div
+      className="alert alert-success"
+      style={{ display: success ? "" : "none" }}
+    >
+      {success}
+    </div>
+  );
+
+  // <input type="text" className="form-control" onChange={handleChange} value={name} required />
+
+  const updateTribeForm = () => {
     return (
-        <form >
+      <form onSubmit={updateTribe}>
         <div className="form-group">
           <br></br>
           <hr />
@@ -41,7 +127,7 @@ console.log(slug);
           <input
             type="text"
             className="form-control"
-            value={slug}
+            value={tribeName}
             onChange={handleName("hello")}
             required
           />
@@ -65,14 +151,29 @@ console.log(slug);
 
         <div>
           <button type="submit" className="btn btn-primary">
-          Update
-          </button>
-          <button type="submit" className="btn btn-primary">
-            Delete
+            Update
           </button>
         </div>
       </form>
-    )
-}
+    );
+  };
 
-export default withRouter(UpdateTribe)
+  return (
+    <div className="container-fluid pb-5">
+      <div className="row">
+        <div className="col-md-8">
+          {showError()}
+          {showSuccess()}
+          {updateTribeForm()}
+          <div className="pt-3">
+            <button type="" className="btn btn-primary" onClick={deleteConfirm}>
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default withRouter(TribeUpdate);

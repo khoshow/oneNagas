@@ -120,7 +120,7 @@ const Index = ({router}) => {
     if (categories) {
       return categories.map((categories, i) => {
         return (
-          <div className="discover-second" key={i}>
+          <div className=" d-flex" key={i}>
             <DiscoverCategories categories={categories} />
           </div>
         );

@@ -44,32 +44,26 @@ const Header = () => {
               {APP_NAME}
             </a>
 
-            <NavbarToggler onClick={toggle} />
+            <NavbarToggler onClick={()=>toggle()} />
             <Collapse isOpen={isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 {isAuth() ? (
+                  <Link href="/user/crud/blog">
+                    <a className="btn btn-info">Write</a>
+                  </Link>
                   
-                    <Link href="/user/crud/blog">
-                      <a
-                        className="btn btn-info"                  
-                      >
-                        Write
-                      </a>
-                    </Link>
-               
                 ) : (
                   <div className="text-center">
                     <div
                       className="BUTTON_WRAPPER_STYLES"
-                      onClick={() => console.log("clicked")}
-                      
+                      onClick={() => console.log("")}
                     >
                       <a
                         className="btn btn-info"
-                        style={{ color: "white", padding: "0.3rem 1rem", }}
+                        style={{ color: "white", padding: "0.3rem 1rem" }}
                         onClick={() => setIsOpenLogin(true)}
                       >
-                       Write
+                        Write
                       </a>
                       <Modal
                         open={isOpenLogin}
@@ -96,7 +90,7 @@ const Header = () => {
                     Blogs
                   </a>
                 </NavItem>
-                {!isAuth() && (
+                {!isAuth() ? (
                   <React.Fragment>
                     <NavItem className="nav-item">
                       <Link href="/signin">
@@ -104,25 +98,25 @@ const Header = () => {
                       </Link>
                     </NavItem>
                   </React.Fragment>
-                )}
+                ):""}
 
-                {isAuth() && isAuth().role === 0 && (
+                {isAuth() && isAuth().role === 0 ? (
                   <NavItem>
                     <Link href="/user">
                       <a className="nav-link">{`${isAuth().name}`}</a>
                     </Link>
                   </NavItem>
-                )}
+                ): ""}
 
-                {isAuth() && isAuth().role === 1 && (
+                {isAuth() && isAuth().role === 1 ? (
                   <NavItem>
                     <Link href="/admin">
                       <a className="nav-link">{`${isAuth().name}`}</a>
                     </Link>
                   </NavItem>
-                )}
+                ): ""}
 
-                {isAuth() && (
+                {isAuth() ?(
                   <NavItem>
                     <a
                       className="nav-link"
@@ -132,7 +126,7 @@ const Header = () => {
                       Signout
                     </a>
                   </NavItem>
-                )}
+                ):""}
 
                 <NavItem className="">
                   <Search />

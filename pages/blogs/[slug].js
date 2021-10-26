@@ -163,7 +163,7 @@ const SingleBlog = ({ blog, query }) => {
 
   const showMyComments = () => {
     return (
-      <div>
+      <div >
         <BlogComments blogId={blog._id} blogSlug={blog.slug} />
       </div>
     );
@@ -285,7 +285,7 @@ const SingleBlog = ({ blog, query }) => {
         <div>
           <div
             className="BUTTON_WRAPPER_STYLES"
-            onClick={() => console.log("clicked")}
+            onClick={() => console.log("")}
           >
             {/* <button onClick={() => setButtonPopup(true)} className="text-center likesButton">{theBlog.likes.length} Likes</button> */}
             <button
@@ -361,7 +361,7 @@ const SingleBlog = ({ blog, query }) => {
         <div className="text-center">
           <div
             className="BUTTON_WRAPPER_STYLES"
-            onClick={() => console.log("clicked")}
+            onClick={() => console.log("")}
           >
             <button
               className="text-center btn siteButton"
@@ -644,7 +644,7 @@ const SingleBlog = ({ blog, query }) => {
                   </div>
 
                   <div className="container">
-                    <h4 className="text-center pt-5 pb-5">Related blogs</h4>
+                    <h4 className="text-center pt-5 pb-5">Related Blogs</h4>
                     <div className="row">{showRelatedBlog()}</div>
                   </div>
 

@@ -6,9 +6,9 @@ import { isAuth, handleResponse } from './auth';
 
 export const postReply = ({blogId, commentId, reply, token})=>{
    
-    console.log("id: "+ blogId);
-    console.log("content: "+ reply);
-    console.log("commentdId: "+ commentId);
+    // console.log("id: "+ blogId);
+    // console.log("content: "+ reply);
+    // console.log("commentdId: "+ commentId);
 
     return fetch(`${API}/reply`, {
         method: 'PUT',

@@ -48,11 +48,11 @@ const Index = ({
 
       <meta
         property="og:image"
-        content={`${DOMAIN}/static/images/couple-Naga.png`}
+        content={`${DOMAIN}/static/images/Nagamei-Logo-White-website.png`}
       />
       <meta
         property="og:image:secure_url"
-        ccontent={`${DOMAIN}/static/images/couple-Naga.png`}
+        ccontent={`${DOMAIN}/static/images/Nagamei-Logo-White-website.png`}
       />
       <meta property="og:image:type" content="image/jpg" />
       {/* <meta property="fb:app_id" content={`${FB_APP_ID}`} /> */}
@@ -252,10 +252,12 @@ const Index = ({
             </div>
           </div>
           <div className="col-md-5">
+            <br />
             <div className="home-image-div">
               <img
                 className="home-image"
-                src="/static/images/couple-Naga.png"
+                src="/static/images/naga-tribe-art-jithew2.png"
+                style={{width:"400px"}}
               ></img>
             </div>
           </div>
@@ -303,7 +305,7 @@ const Index = ({
               </div>
               <div>
                 <br></br>
-                <h3>Naga tribes</h3>
+                <h3>Naga Tribes</h3>
                 <div>{showAlltribes()}</div>
               </div>
               </div>

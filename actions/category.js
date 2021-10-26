@@ -13,7 +13,7 @@ export const create = (category, token) => {
         body:category,     
     })
         .then(response => {
-            console.log(category.name);
+            // console.log(category.name);
             handleResponse(response)
             return response.json();
         })
@@ -55,3 +55,24 @@ export const removeCategory = (slug, token) => {
         })
         .catch(err => console.log(err));
 };
+
+
+
+export const update = (category, slug, token) => {
+// console.log("categroy: "+ category);
+    return fetch(`${API}/category/update/${slug}`, {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',           
+            Authorization: `Bearer ${token}`
+        },
+        body: category
+    })
+        .then(response => {
+            // console.log(category.name);
+            handleResponse(response)
+            return response.json();
+        })
+        .catch(err => console.log(err));
+};
+
