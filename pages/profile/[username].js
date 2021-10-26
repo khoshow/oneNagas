@@ -96,6 +96,7 @@ const UserProfile = ({ user, blogs, pickedAuthors, query }) => {
 
 
   const writerOfTheWeeek = () => {
+    if (isAuth() && isAuth().role == 1) {
    if(pickedAuthors.length >0){
       for (var i = 0; i < pickedAuthors.length; i++) {
         // console.log("Hello Len: "+pickedAuthors.length);
@@ -129,7 +130,7 @@ const UserProfile = ({ user, blogs, pickedAuthors, query }) => {
         );
       }
      
-     
+    } 
   };
 
   const selectWriterFunction = () => {

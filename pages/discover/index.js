@@ -19,6 +19,7 @@ import { DOMAIN } from "../../config";
 const Index = ({router}) => {
  const head =()=>{
   <Head>
+     
       <title>Discover the Nagas | {APP_NAME}</title>
       <meta
         name="description"
