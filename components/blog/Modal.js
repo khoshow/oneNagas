@@ -1,55 +1,54 @@
-
-import React from 'react'
-import ReactDom from 'react-dom'
-
+import React from "react";
+import ReactDom from "react-dom";
 
 const MODAL_STYLES = {
-  position: 'fixed',
-  width:"500px",
-  maxWidth:'80%',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  backgroundColor: '#FFF',
-  padding: '50px',
-  zIndex: 1000
-}
+  position: "fixed",
+  width: "500px",
+  maxWidth: "80%",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  backgroundColor: "#FFF",
+  padding: "50px",
+  zIndex: 1000,
+};
 
 const OVERLAY_STYLES = {
-  position: 'fixed',
+  position: "fixed",
   top: 0,
   left: 0,
   right: 0,
   bottom: 0,
-  backgroundColor: 'rgba(0, 0, 0, .7)',
-  zIndex: 1000
-}
+  backgroundColor: "rgba(0, 0, 0, .7)",
+  zIndex: 1000,
+};
 
-const closeButton ={
-  position: 'fixed',
+const closeButton = {
+  position: "fixed",
   top: 0,
   right: 0,
-  
-}
+};
 
- function Modal({ open, children, onClose }) {
-  if (!open) return null
+function Modal({ open, children, onClose }) {
+  if (!open) return null;
 
   return ReactDom.createPortal(
     <>
       <div style={OVERLAY_STYLES} />
       <div style={MODAL_STYLES}>
-        <button style={closeButton} onClick={onClose}> X </button>
+        <button style={closeButton} onClick={onClose}>
+          {" "}
+          X{" "}
+        </button>
         {children}
         <hr></hr>
       </div>
     </>,
-    document.getElementById('myportal')
-  )
+    document.getElementById("myportal")
+  );
 }
 
-export default Modal
-
+export default Modal;
 
 // import React from 'react'
 
@@ -57,15 +56,15 @@ export default Modal
 //     return (props.trigger) ? (
 //         <div  className="popup">
 //         <button  onClick={()=>props.setTrigger(false)}>close</button>
-//         <div className="popup">              
-//             <div className="popup-inner">             
+//         <div className="popup">
+//             <div className="popup-inner">
 //                 <p>{props.children}</p>
-                         
+
 //             </div>
 //         </div>
 //         </div>
 //     ) : ""
-   
+
 // }
 
 // export default LikesPop

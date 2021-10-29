@@ -97,17 +97,15 @@ const SingleBlog = ({ blog, query }) => {
   };
 
   const followOrUnfollow = (blog) => {
-   
-          for (var i = 0; i < blog.postedBy.followers.length; i++) {
-            if (isAuth() && isAuth()._id == blog.postedBy.followers[i]) {
-              setFollowing(true);
-              setFollowers(blog.postedBy.followers.length);
-            } else {
-              setFollowing(false);
-              setFollowers(blog.postedBy.followers.length);
-            }
-          }
-  
+    for (var i = 0; i < blog.postedBy.followers.length; i++) {
+      if (isAuth() && isAuth()._id == blog.postedBy.followers[i]) {
+        setFollowing(true);
+        setFollowers(blog.postedBy.followers.length);
+      } else {
+        setFollowing(false);
+        setFollowers(blog.postedBy.followers.length);
+      }
+    }
   };
 
   useEffect(() => {
@@ -132,7 +130,7 @@ const SingleBlog = ({ blog, query }) => {
       </Link>
     ));
 
-    const showBlogTribes = (blog) =>
+  const showBlogTribes = (blog) =>
     blog.tribes.map((tr, i) => (
       <Link key={i} href={`/tags/${tr.slug}`}>
         <a className="btn tribe-button">{tr.name}</a>
@@ -140,13 +138,17 @@ const SingleBlog = ({ blog, query }) => {
     ));
 
   const showRelatedBlog = () => {
-    return related.map((blog, i) => (
-      <div className="col-md-4" key={i}>
-        <article>
-          <SmallCard blog={blog} />
-        </article>
-      </div>
-    ));
+ 
+     return related.map((blog, i) => (
+        <div className="text-center" key={i}>
+          <article>
+            <SmallCard blog={blog} />
+          </article>
+        </div>
+      ));
+   
+    
+   
   };
 
   // const showComments = () => {
@@ -163,7 +165,7 @@ const SingleBlog = ({ blog, query }) => {
 
   const showMyComments = () => {
     return (
-      <div >
+      <div>
         <BlogComments blogId={blog._id} blogSlug={blog.slug} />
       </div>
     );
@@ -205,7 +207,7 @@ const SingleBlog = ({ blog, query }) => {
           <button
             onClick={clickSubmit(slug)}
             className="far fa-star btn siteButton"
-            style={{ padding: "0.5rem" }}
+            style={{ padding: "" }}
           >
             Editor Pick
           </button>
@@ -513,13 +515,13 @@ const SingleBlog = ({ blog, query }) => {
                       <a> {blog.postedBy.name}</a>
                     </Link>
                     {followedBy()}
-                   
+
                     <br />
                     <p>{blog.postedBy.about}</p>
                     <br />
                     {}
                     {showFollowOrUnfollow()}
-                  
+
                     <br></br>
                     <hr></hr>
                     <ReactShare blog={blog} />
@@ -557,7 +559,7 @@ const SingleBlog = ({ blog, query }) => {
                   </div>
                 </div>
                 <div className="col-md-8">
-                <div className="row" style={{ marginTop: "2rem" }}>
+                  <div className="row" style={{ marginTop: "2rem" }}>
                     <figure
                       style={{
                         textAlign: "center",
@@ -574,76 +576,99 @@ const SingleBlog = ({ blog, query }) => {
                     </figure>
                   </div>
                   <div className="container-fluid">
-                  <h1 className=" pt-3 font-weight-bold">{blog.title}</h1>
-                  <div className="show-only-desktop below-title-desktop">
-                    <img
-                      src={`${API}/user/photo/${blog.postedBy.username}`}
-                      className="img img-thumbnail mb-3"
-                      style={{
-                        height: "50px",
-                        width: "50px",
-                        borderRadius: "50%",
-                      }}
-                      alt="user profile"
-                    />
-                  
-                    <Link href={`/profile/${blog.postedBy.username}`}>
-                            <a><p>&nbsp;{blog.postedBy.name}</p></a>
-                          </Link>
-                    <p> &nbsp;&nbsp; | &nbsp;&nbsp; {moment(blog.updatedAt).format("MMM DD YYYY")}</p>
-                  </div>
+                    <h1 className=" pt-3 font-weight-bold">{blog.title}</h1>
+                    <div className="show-only-desktop below-title-desktop">
+                      <img
+                        src={`${API}/user/photo/${blog.postedBy.username}`}
+                        className="img img-thumbnail mb-3"
+                        style={{
+                          height: "50px",
+                          width: "50px",
+                          borderRadius: "50%",
+                        }}
+                        alt="user profile"
+                      />
+
+                      <Link href={`/profile/${blog.postedBy.username}`}>
+                        <a>
+                          <p>&nbsp;{blog.postedBy.name}</p>
+                        </a>
+                      </Link>
+                      <p>
+                        {" "}
+                        &nbsp;&nbsp; | &nbsp;&nbsp;{" "}
+                        {moment(blog.updatedAt).format("MMM DD YYYY")}
+                      </p>
+                    </div>
                     <section>
                       <div className="container">
                         <div className="show-only-mobile">
-                          <div className="d-flex" style={{alignItems:"center"}}>
-                          <img
-                            src={`${API}/user/photo/${blog.postedBy.username}`}
-                            className="img img-thumbnail mb-3"
-                            style={{
-                              height: "50px",
-                              width: "50px",
-                              borderRadius: "50%",
-                            }}
-                            alt="user profile"
-                          />
-                          <Link href={`/profile/${blog.postedBy.username}`}>
-                            <a><p>&nbsp;{blog.postedBy.name}&nbsp;</p></a>
-                          </Link>
-                          <p> | {moment(blog.updatedAt).format("MMM DD YYYY")}</p>
-                          </div>                     
-                          {adminRole()}
+                          <div
+                            className="d-flex"
+                            style={{ alignItems: "center" }}
+                          >
+                            <img
+                              src={`${API}/user/photo/${blog.postedBy.username}`}
+                              className="img img-thumbnail mb-3"
+                              style={{
+                                height: "50px",
+                                width: "50px",
+                                borderRadius: "50%",
+                              }}
+                              alt="user profile"
+                            />
+                            <div className="">
+                              <Link href={`/profile/${blog.postedBy.username}`}>
+                                <a>
+                                  <p style={{ margin: "0" }}>
+                                    &nbsp;{blog.postedBy.name}&nbsp;
+                                  </p>
+                                </a>
+                              </Link>
+                              <p
+                                style={{
+                                  fontSize: "16px",
+                                  fontStyle: "italic",
+                                }}
+                              >
+                                &nbsp;|&nbsp;
+                                {moment(blog.updatedAt).format("MMM DD YYYY")}
+                              </p>
+                            </div>
+                          </div>
+
                           {showSuccess()}
                           {showError()}
-                          <ReactShare blog={blog} />
-                          <br />
-                          <div className="pb-3">
-                            {showBlogCategories(blog)}
-                            {showBlogTags(blog)}
-                            {showBlogTribes(blog)}
-                            <br />
-                           
 
-                            <br />
-                          </div>
+                          {/* <div className="pb-3"> */}
+                          {/* {showBlogCategories(blog)}
+                            {showBlogTags(blog)}
+                            {showBlogTribes(blog)} */}
+
+                          {/* </div> */}
                         </div>
                       </div>
                     </section>
                   </div>
 
-                
-
-                  <div className="container">
+                  <div className="">
                     <section>
                       <div className="col-md-12 lead">
                         {renderHTML(blog.body)}
+                      </div>
+<hr />
+                      <div style={{ textAlign: "center" }}>
+                        {adminRole()}
+                        <h5 style={{fontStyle:"italic"}}>Worth sharing?</h5>
+                        <ReactShare blog={blog} />
                       </div>
                     </section>
                     <div></div>
                   </div>
 
                   <div className="container">
-                    <h4 className="text-center pt-5 pb-5">Related Blogs</h4>
-                    <div className="row">{showRelatedBlog()}</div>
+                    { related ? <h4 className="text-center pt-5">Related Blogs</h4> : "" }
+                    <div className="row text-center d-flex" style={{marginLeft:"auto", marginRight:"auto"}}>{showRelatedBlog()}</div>
                   </div>
 
                   {/* <div className="container pt-5 pb-5">{showComments()}</div> */}

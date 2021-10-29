@@ -28,57 +28,51 @@ const Card = ({ blog }) => {
   return (
     <div>
       <div className="row">
-        <div className="col">
-          {" "}
-          <div className="">
-            <div className="card-body">
-              <div className="row photoAndName">
-                <img
-                  src={`${API}/user/photo/${blog.postedBy.username}`}
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = photoUrl;
-                  }}
-                  className="editorPickPhoto"
-                  alt="User Profile Photo"
-                />
-                <Link href={`/profile/${blog.postedBy.username}`}>
-                  <a>
-                    <h4 className="username"> {blog.postedBy.name}</h4>
-                    {/* {console.log(blog)} */}
-                  </a>
-                </Link>
-              </div>
-              <section>
-                <Link href={`/blogs/${blog.slug}`}>
-                  <a>
-                    <h3 className="card-title blog-title">{blog.title}</h3>
-                  </a>
-                </Link>
-              </section>
-              <section>
-                <p className="card-text">{excerpt}</p>
-              </section>
+        <div className="col-md-8">
+          <div className="card-body">
+            <div className="row photoAndName">
+              <img
+                src={`${API}/user/photo/${blog.postedBy.username}`}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = photoUrl;
+                }}
+                className="editorPickPhoto"
+                alt="User Profile Photo"
+              />
+              <Link href={`/profile/${blog.postedBy.username}`}>
+                <a>
+                  <h4 className="username"> {blog.postedBy.name}</h4>
+                  {/* {console.log(blog)} */}
+                </a>
+              </Link>
+            </div>
+            <section>
+              <Link href={`/blogs/${blog.slug}`}>
+                <a>
+                  <h3 className="card-title blog-title">{blog.title}</h3>
+                </a>
+              </Link>
+            </section>
+            <section>
+              <p className="card-text">{excerpt}</p>
+            </section>
 
-              <div className="">
-                <br></br>
-                <h5>{moment(blog.updatedAt).format("DD MMM YYYY")} </h5>
-              </div>
+            <div className="">
+              <br></br>
+              <h5>{moment(blog.updatedAt).format("DD MMM YYYY")} </h5>
             </div>
           </div>
         </div>
-        <div className="col">
-          <div className="col-md-8">
-            <figure>
-              <img
-                src={`${API}/blog/photo/${blog.slug}`}
-                className="home-blog-image"
-                alt="User Profile Photo"
-              />
-             
-            </figure>
 
-          </div>
+        <div className="col-md-4">
+          <figure>
+            <img
+              src={`${API}/blog/photo/${blog.slug}`}
+              className="home-blog-image"
+              alt="User Profile Photo"
+            />
+          </figure>
         </div>
       </div>
     </div>

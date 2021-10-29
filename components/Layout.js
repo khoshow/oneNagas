@@ -5,7 +5,7 @@ import ReactDOM from "react-dom";
 const Layout = ({ children }) => {
   return (
     <React.Fragment>
-      <div style={{ backgroundColor: "" }}>
+      <div>
         <Header />
         <div className="container">{children}</div>
       </div>

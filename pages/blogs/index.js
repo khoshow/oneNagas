@@ -83,8 +83,8 @@ const Blogs = ({
     return blogs.map((blog, i) => {
       // ()
       return (
-        <div className="">
-          <article key={i}>
+        <div className="" key={i}>
+          <article >
             <Card blog={blog} />
             <hr />
           </article>

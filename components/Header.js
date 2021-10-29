@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useEffect, useState } from "react";
 import Link from "next/link";
 import Router from "next/router";
 import NProgress from "nprogress";
@@ -31,12 +31,17 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenLogin, setIsOpenLogin] = useState(false);
 
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+      setMounted(true)
+  }, [])
+
   const toggle = () => {
     setIsOpen(!isOpen);
   };
 
-  return (
-    <div className="my-navbar" style={{ backgroundColor: "" }}>
+  return mounted && (
+    <div className="my-navbar" >
       <div className="nav-top container">
         <Navbar light expand="md">
           <div className="container-fluid">
@@ -44,14 +49,13 @@ const Header = () => {
               {APP_NAME}
             </a>
 
-            <NavbarToggler onClick={()=>toggle()} />
+            <NavbarToggler onClick={() => toggle()} />
             <Collapse isOpen={isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 {isAuth() ? (
                   <Link href="/user/crud/blog">
                     <a className="btn btn-info">Write</a>
                   </Link>
-                  
                 ) : (
                   <div className="text-center">
                     <div
@@ -79,8 +83,8 @@ const Header = () => {
                     </div>
                     <div className="OTHER_CONTENT_STYLES"></div>
                   </div>
-                )}
-                <NavItem>
+                )} 
+                 <NavItem>
                   <a href="/discover" className="nav-link">
                     Discover
                   </a>
@@ -103,7 +107,9 @@ const Header = () => {
                       </Link>
                     </NavItem>
                   </React.Fragment>
-                ):""}
+                ) : (
+                  ""
+                )}
 
                 {isAuth() && isAuth().role === 0 ? (
                   <NavItem>
@@ -111,7 +117,9 @@ const Header = () => {
                       <a className="nav-link">{`${isAuth().name}`}</a>
                     </Link>
                   </NavItem>
-                ): ""}
+                ) : (
+                  ""
+                )}
 
                 {isAuth() && isAuth().role === 1 ? (
                   <NavItem>
@@ -119,9 +127,11 @@ const Header = () => {
                       <a className="nav-link">{`${isAuth().name}`}</a>
                     </Link>
                   </NavItem>
-                ): ""}
+                ) : (
+                  ""
+                )}
 
-                {isAuth() ?(
+                {isAuth() && (
                   <NavItem>
                     <a
                       className="nav-link"
@@ -130,12 +140,15 @@ const Header = () => {
                     >
                       Sign Out
                     </a>
-                  </NavItem>
-                ):""}
+                  </NavItem>)
+                
+                }
+              
+
 
                 <NavItem className="">
                   <Search />
-                </NavItem>
+                </NavItem> 
               </Nav>
             </Collapse>
           </div>

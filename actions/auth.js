@@ -178,7 +178,7 @@ export const resetPassword = resetInfo =>{
 }
 
 export const loginWithGoogle = user =>{
-    console.log("Use4r: "+user);
+   
     return fetch(`${API}/google-login`, {
         method: 'POST',
         headers: {

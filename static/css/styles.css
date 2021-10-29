@@ -33,15 +33,17 @@ img {
 
 h1{
   font-family: "Merriweather", serif;
-  font-size: 24px;
+  font-size: 25px;
   color: #292929;
 }
 h2 {
   font-family: "Merriweather", serif;
-  font-size: 18px;
+  font-size: 20px;
   color: #292929;
 }
-
+p{
+  font-size: 18px;
+}
 h3 {
   font-family: "Merriweather", serif;
   font-size: 18px;

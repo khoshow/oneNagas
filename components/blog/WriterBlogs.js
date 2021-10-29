@@ -20,7 +20,7 @@ const WriterBlogs = ({ blog }) => {
     //   </Link>
     // ));
 
-  blog.excerpt = smartTrim(blog.excerpt, 100, " ", " ...");
+    (blog.excerpt = smartTrim(blog.excerpt, 100, " ", " ..."));
   const excerpt = blog.excerpt.replace(/<[^>]*>?/gm, "");
 
   let ur = "/static/images/avatar.png";
@@ -71,9 +71,7 @@ const WriterBlogs = ({ blog }) => {
                 className="home-blog-image"
                 alt="User Profile Photo"
               />
-             
             </figure>
-
           </div>
         </div>
       </div>
