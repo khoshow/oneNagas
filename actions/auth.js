@@ -184,7 +184,7 @@ export const loginWithGoogle = user =>{
             Accept:'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(user)
+        body: JSON.stringify({tokenId:user})
     })
     .then(response=>{
         return response.json()
