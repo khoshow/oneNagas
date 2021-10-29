@@ -10,7 +10,7 @@ import {getTempProfilePhoto } from '../../actions/user';
 const LoginGoogle = () => {
 
 const responseGoogle = (response)=>{
-    console.log(response);
+    // console.log(response);
     const tokenId = response.tokenId
     
     const user = tokenId
@@ -37,6 +37,7 @@ const responseGoogle = (response)=>{
                 buttonText="Login with Google"
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}
                theme="dark"
             />
         </div>

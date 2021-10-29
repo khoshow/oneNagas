@@ -36,7 +36,7 @@ const responseGoogle = (response)=>{
     console.log(response);
     const tokenId = response.tokenId
     console.log("mY toKEN "+tokenId);
-    const user = {tokenId}
+    const user = tokenId
 
     loginWithGoogle(user).then(data=>{
         if(data.error){
@@ -60,6 +60,7 @@ const responseGoogle = (response)=>{
                 buttonText="Sign Up with Google"
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}
                theme="dark"
             />
         </div>
