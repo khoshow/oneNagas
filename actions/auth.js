@@ -149,7 +149,7 @@ export const forgotPassword = email =>{
     return fetch(`${API}/forgot-password`, {
         method: 'PUT',
         headers: {
-            'Accept':'application/json',
+            Accept:'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(email)
@@ -166,7 +166,7 @@ export const resetPassword = resetInfo =>{
     return fetch(`${API}/reset-password`, {
         method: 'PUT',
         headers: {
-            'Accept':'application/json',
+            Accept:'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(resetInfo)
@@ -181,7 +181,7 @@ export const loginWithGoogle = user =>{
     return fetch(`${API}/google-login`, {
         method: 'POST',
         headers: {
-            'Accept':'application/json',
+            Accept:'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(user)

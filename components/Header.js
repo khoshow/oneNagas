@@ -72,7 +72,7 @@ const Header = () => {
                         <div>
                           <h4>Please log in to start writing!</h4>
                           <Link href={`/signin`}>
-                            <a className=" btn btn-primary">Sign in</a>
+                            <a className=" btn btn-primary">Sign In</a>
                           </Link>
                         </div>
                       </Modal>
@@ -94,7 +94,12 @@ const Header = () => {
                   <React.Fragment>
                     <NavItem className="nav-item">
                       <Link href="/signin">
-                        <a className="nav-link">Signin</a>
+                        <a className="nav-link">Sign In</a>
+                      </Link>
+                    </NavItem>
+                    <NavItem className="nav-item">
+                      <Link href="/signup">
+                        <a className="nav-link">Sign Up</a>
                       </Link>
                     </NavItem>
                   </React.Fragment>
@@ -123,7 +128,7 @@ const Header = () => {
                       style={{ cursor: "pointer" }}
                       onClick={() => signout(() => Router.replace(`/signin`))}
                     >
-                      Signout
+                      Sign Out
                     </a>
                   </NavItem>
                 ):""}

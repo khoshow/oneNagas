@@ -33,10 +33,10 @@ const SignupGoogle = () => {
 //          }, []);
 
 const responseGoogle = (response)=>{
-    // console.log(response);
+    console.log(response);
     const tokenId = response.tokenId
-    
-    const user = {tokenId, photo}
+    console.log("mY toKEN "+tokenId);
+    const user = {tokenId}
 
     loginWithGoogle(user).then(data=>{
         if(data.error){

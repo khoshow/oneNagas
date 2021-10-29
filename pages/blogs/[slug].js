@@ -610,9 +610,7 @@ const SingleBlog = ({ blog, query }) => {
                             <a><p>&nbsp;{blog.postedBy.name}&nbsp;</p></a>
                           </Link>
                           <p> | {moment(blog.updatedAt).format("MMM DD YYYY")}</p>
-                          </div>
-                         
-                        
+                          </div>                     
                           {adminRole()}
                           {showSuccess()}
                           {showError()}
