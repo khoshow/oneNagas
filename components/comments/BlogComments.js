@@ -61,10 +61,10 @@ const BLogComments = ({ blogId, blogSlug }) => {
                             }}
                             alt="user profile"
                         />
-                        <a href={`/profile/${data.comments[i].commentBy.username}`}><p>{data.comments[i].commentBy.name}</p></a>
+                        <a href={`/profile/${data.comments[i].commentBy.username}`}><p style={{fontWeight:"bold"}}>{data.comments[i].commentBy.name}</p></a>
 
                     </div>
-                    <div className="contentAfterCommentByName"><p className="commentBy">{data.comments[i].content}</p></div>
+                    <div className="contentAfterCommentByName"><p className="commentBy" style={{fontSize:"14px"}}>{data.comments[i].content}</p></div>
 
                     <div className="reply-like-div">
 
