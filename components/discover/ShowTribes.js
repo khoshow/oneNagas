@@ -29,7 +29,7 @@ const ShowTribes = ({ tribes }) => {
                 </a>
               </Link>
             </div>
-            <div className="">
+            {/* <div className="">
               <Link href={`/tribes/${tribes.slug}`}>
                 <img
                   src={`${API}/naga-tribe-photo/photo/${hel}`}
@@ -37,7 +37,7 @@ const ShowTribes = ({ tribes }) => {
                   alt={`${tribes.slug}`}
                 />
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
