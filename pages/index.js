@@ -11,7 +11,6 @@ import { API } from "../config";
 import { APP_NAME } from "../config";
 import { FB_APP_ID } from "../config";
 import { DOMAIN } from "../config";
-
 import { listBlogsWithCategoriesAndTags } from "../actions/blog";
 import { getWriterOfTheWeek } from "../actions/home";
 import { getEditorsPicks } from "../actions/editorsPicks";
