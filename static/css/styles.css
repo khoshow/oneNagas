@@ -62,7 +62,9 @@ h5{
   padding: 6px 16px;
 }
 
-
+.navbar li{
+ margin:0 !important
+}
 
 .btn:hover{
   background-color: #6c757d;

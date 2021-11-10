@@ -41,7 +41,7 @@ button {
 
 h1 {
   font-family: "Times New Roman", Times, serif;
-  font-size: 25px;
+  font-size: 28px;
   color: #292929;
   font-style: normal;
   font-weight: lighter;
@@ -52,8 +52,32 @@ h2{
 p {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 18px;
+  margin:0
 }
-
+h3{
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+  margin:0
+}
+h4{
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+  margin:0
+}h5{
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 18px;
+  margin:0
+}
+h6{
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
+  margin:0
+}
+li{
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 18px;
+  margin:1rem
+}
 .card-body {
   font-size: 16px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;

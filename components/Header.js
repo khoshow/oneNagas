@@ -61,7 +61,6 @@ const Header = () => {
               <a href="/" className="font-weight-bold navbar-brand">
                 {APP_NAME}
               </a>
-
               <NavbarToggler onClick={() => toggle()} />
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>

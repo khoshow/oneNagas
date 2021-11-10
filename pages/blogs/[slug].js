@@ -54,6 +54,7 @@ const SingleBlog = ({ blog, query }) => {
       <link rel="stylesheet" href="/static/css/likesPop.css" />
 
       <script></script>
+      
     </Head>
   );
 
