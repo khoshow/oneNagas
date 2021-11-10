@@ -154,7 +154,7 @@ const Header = () => {
                         style={{ cursor: "pointer" }}
                         onClick={() => signout(() => Router.replace(`/signin`))}
                       >
-                        Sign Out
+                       <i class="fas fa-lightbulb fa-lightbulb-hover" title="Sign Out"></i>
                       </a>
                     </NavItem>
                   )}

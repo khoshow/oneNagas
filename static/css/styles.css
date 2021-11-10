@@ -55,6 +55,12 @@ h5{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
+.fa-lightbulb-hover{
+color: #4fce4f;
+}
+.fa-lightbulb-hover:hover{
+  color: rgb(226, 21, 21)
+}
 .category-button {
   margin: 0 8px 8px 0;
   opacity: 0.8;

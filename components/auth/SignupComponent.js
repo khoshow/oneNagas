@@ -118,7 +118,6 @@ const SignupComponent = () => {
             placeholder="Type your email"
           />
         </div>
-
         <div className="form-group">
           <input
             value={password}
@@ -128,6 +127,15 @@ const SignupComponent = () => {
             placeholder="Type your password"
           />
         </div>
+        {/* <div className="form-group">
+          <input
+            value={password}
+            onChange={handleChange("passwor")}
+            type="password"
+            className="form-control"
+            placeholder="Confirm Password"
+          />
+        </div> */}
 
         <div className="text-center">
           <button className="btn btn-primary ">Sign Up</button>
